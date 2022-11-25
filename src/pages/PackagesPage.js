@@ -1,9 +1,8 @@
 import React from 'react';
+import Packages from '../components/navigation/Packages/Packages';
 
 const PackagesPage = () => (
-  <div>
-    component goes here 1
-  </div>
+  <Packages />
 );
 
 export default PackagesPage;
