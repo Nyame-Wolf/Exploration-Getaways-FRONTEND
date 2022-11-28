@@ -1,3 +1,130 @@
-* {
-  padding: 0;
+.navigation-container {
+  background-color: darkslategray;
+  background-image: url(../../assets/textures/texture1.png);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  color: white;
+  align-items: center;
+  padding: 5px 15px;
+  z-index: 1;
+  box-shadow: var(--box-shadow-1);
+}
+
+.navigation-logo-1 {
+  color: white;
+  font-weight: 600;
+  font-size: 0.8em;
+}
+
+.navigation-logo-2 {
+  color: chartreuse;
+  font-weight: 900;
+  font-size: 0.8em;
+}
+
+.navigation-ul {
+  display: none;
+  z-index: 2;
+}
+
+.navigation-ul li {
+  width: 100%;
+  padding: 25px;
+  position: relative;
+}
+
+.active-link,
+.none {
+  background-color: rgba(0, 139, 139);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 10px;
+  gap: 5px;
+  font-weight: 700;
+}
+
+.navigation-container.toggle-on .navigation-ul {
+  background-image: url(../../assets/textures/texture1.png);
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 139, 139, 0.8);
+  width: 315px;
+  animation: slide-open 0.2s ease-in-out;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  backdrop-filter: blur(4px);
+  box-shadow: var(--box-shadow-1);
+  padding: 5px;
+  gap: 5px;
+  border-bottom-right-radius: 200px;
+}
+
+.active-link {
+  color: chartreuse;
+  background-color: rgb(6, 115, 115);
+}
+
+.none {
+  color: white;
+}
+
+.active-link:hover,
+.none:hover {
+  background-color: rgba(128, 255, 0, 0.2);
+}
+
+.hamburger-menu {
+  cursor: pointer;
+}
+
+.hamburger-menu div {
+  height: 3px;
+  background: white;
+  width: 30px;
+  margin: 5px 0;
+  transition: all 0.5s;
+  border-radius: 5px;
+}
+
+.navigation-container.toggle-on .hamburger-menu div:nth-child(1) {
+  width: 25px;
+  transform: translate(-5px, 10px) rotate(50deg);
+  transition: all 0.5s;
+}
+
+.navigation-container.toggle-on .hamburger-menu div:nth-child(2) {
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.navigation-container.toggle-on .hamburger-menu div:nth-child(3) {
+  width: 25px;
+  transform: translate(10px, -6px) rotate(-50deg);
+  transition: all 0.5s;
+}
+
+@keyframes slide-open {
+  from {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  to {
+    opacity: 1;
+    height: 100vh;
+    width: 300px;
+  }
 }
