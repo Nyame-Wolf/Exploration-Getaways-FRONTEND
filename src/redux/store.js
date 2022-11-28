@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import { configureStore } from '@reduxjs/toolkit';
 import agencyReducer from './reducer/reducer';
 

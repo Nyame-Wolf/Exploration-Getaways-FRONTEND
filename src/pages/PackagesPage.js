@@ -1,5 +1,6 @@
+/* eslint-disable linebreak-style */
 import React from 'react';
-import Packages from '../components/navigation/Packages/Packages';
+import Packages from '../components/packages/packages';
 
 const PackagesPage = () => (
   <Packages />

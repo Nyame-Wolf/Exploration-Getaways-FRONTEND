@@ -11,21 +11,20 @@ import SignUpPage from './pages/SignUpPage';
 
 function App() {
   return (
-    <>
+    <div className="app-container">
       <Navigation />
-      <div className="App">
+      <main className="main-container">
         <Routes>
           <Route path="/" element={<PackagesPage />} />
           <Route path="/package/details" element={<DetailsPage />} />
           <Route path="/booking" element={<BookingPage />} />
           <Route path="/reservations" element={<ReservationsPage />} />
           <Route path="/about" element={<AboutPage />} />
-
           <Route path="/sign-in" element={<SignInPage />} />
           <Route path="/sign-up" element={<SignUpPage />} />
         </Routes>
-      </div>
-    </>
+      </main>
+    </div>
   );
 }
 
