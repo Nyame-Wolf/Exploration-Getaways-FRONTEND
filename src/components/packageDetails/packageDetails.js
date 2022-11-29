@@ -70,10 +70,12 @@ function Package() {
           </div>
         </div>
       </div>
+
       <Link to="/">
         Go Back
       </Link>
-      <Link to="/booking">
+
+      <Link state={singlePackage} to="/booking">
         Book this package
       </Link>
     </>
