@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getReservations } from '../../redux/reducer/reservations';
 
 const Reservations = () => {
@@ -10,7 +11,7 @@ const Reservations = () => {
     acc[next.id] = next;
     return acc;
   }, {}));
-  console.log(packages);
+
   useEffect(() => {
     if (loading) { return; }
     setLoading(true);
@@ -25,13 +26,20 @@ const Reservations = () => {
     <>
       {reservations.map((reservation) => (
         <li key={reservation.id}>
-          {reservation.id}
           {packages[reservation.package_id]
-            ? <h1>{packages[reservation.package_id].title}</h1>
+            ? (
+              <div>
+                <h1>{packages[reservation.package_id].title}</h1>
+                <button type="button" onClick={console.log(1)}>click me</button>
+              </div>
+            )
             : null}
         </li>
       ))}
 
+      <Link to="/">
+        Go Back
+      </Link>
     </>
   );
 };
