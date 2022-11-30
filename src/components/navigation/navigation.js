@@ -1,17 +1,25 @@
+/* eslint-disable no-unused-expressions */
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './navigation.css';
 import {
   FaHome, FaShoppingCart, FaShoppingBag, FaInfo,
 } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
+import { deleteSession } from '../../redux/reducer/registration';
 
 const Navigation = () => {
   const [isHamburgerActive, setActive] = useState(false);
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const toggleClass = () => {
     setActive(!isHamburgerActive);
   };
-
+  const handleLogout = (e) => {
+    e.preventDefault;
+    dispatch(deleteSession());
+    navigate('/sign-in');
+  };
   return (
     <nav className={isHamburgerActive ? 'navigation-container toggle-on' : 'navigation-container'}>
       <span>
@@ -61,6 +69,13 @@ const Navigation = () => {
             <FaInfo />
             <span>About</span>
           </NavLink>
+        </li>
+        <li>
+
+          <form onSubmit={handleLogout}>
+            <button type="submit">Logout</button>
+          </form>
+
         </li>
       </ul>
     </nav>

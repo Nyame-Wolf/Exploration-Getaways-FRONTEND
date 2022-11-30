@@ -46,6 +46,28 @@ export const postSignIn = createAsyncThunk(
   },
 );
 
+export const deleteSession = createAsyncThunk(
+  'users/signout',
+  async () => {
+    await fetch('http://127.0.0.1:4000/logout', {
+      method: 'delete',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('token'),
+      },
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return res.json().then((json) => Promise.reject(json));
+    })
+      .then((json) => {
+        console.dir(json);
+      })
+      .catch((err) => console.error(err));
+  },
+);
+
 export const reservationSlice = createSlice({
   name: 'reservations',
   initialState,
