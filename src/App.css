@@ -6,7 +6,10 @@
 
 .main-container {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 15px;
+  justify-content: center;
+  min-height: calc(100vh - 40px);
+}
+
+.loading-gif {
+  width: 50px;
 }

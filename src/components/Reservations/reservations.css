@@ -1,0 +1,21 @@
+.reservations-container {
+  padding: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.reservation {
+  background-color: white;
+  border-radius: 5px;
+  overflow: hidden;
+  border-bottom: 3px double chartreuse;
+  box-shadow: var(--box-shadow-1);
+  padding: 15px;
+}
+
+.back-button-color {
+  color: white;
+  background-color: chartreuse;
+}
