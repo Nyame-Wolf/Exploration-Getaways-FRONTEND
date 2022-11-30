@@ -1,10 +1,9 @@
 /* eslint-disable linebreak-style */
 import React from 'react';
+import Bookings from '../components/bookings/bookings';
 
 const BookingPage = () => (
-  <div>
-    component goes here 2
-  </div>
+  <Bookings />
 );
 
 export default BookingPage;

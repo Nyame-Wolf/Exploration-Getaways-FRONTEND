@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { FaPlaneDeparture, FaRegCalendarAlt, FaGlobeAmericas } from 'react-icons/fa';
@@ -11,7 +12,7 @@ function Packages() {
   console.log(status === 'succeeded' ? packages : '...');
 
   return (
-    <>
+    <div className="home-container">
       {status === 'succeeded' ? packages.map((item) => (
         <Link state={item} key={item.id} to="package/details">
           <div key={item.id} className="package">
@@ -75,8 +76,8 @@ function Packages() {
             </div>
           </div>
         </Link>
-      )) : <img src={loadingGif} alt="loading" /> }
-    </>
+      )) : <img className="loading-gif" src={loadingGif} alt="loading" /> }
+    </div>
   );
 }
 

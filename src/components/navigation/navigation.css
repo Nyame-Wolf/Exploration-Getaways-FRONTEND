@@ -7,9 +7,10 @@
   position: relative;
   color: white;
   align-items: center;
-  padding: 5px 15px;
+  padding: 0 15px;
   z-index: 1;
   box-shadow: var(--box-shadow-1);
+  height: 40px;
 }
 
 .navigation-logo-1 {
@@ -65,7 +66,7 @@
   left: 0;
   bottom: 0;
   backdrop-filter: blur(4px);
-  box-shadow: var(--box-shadow-1);
+  box-shadow: var(--box-shadow-3);
   padding: 5px;
   gap: 5px;
   border-bottom-right-radius: 200px;

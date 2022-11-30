@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = [];
@@ -16,6 +17,34 @@ export const getReservations = createAsyncThunk(
       return response.json();
     }
     throw response;
+  },
+);
+
+export const postReservations = createAsyncThunk(
+  'bookings/postReservation',
+  async (object) => {
+    await fetch('http://127.0.0.1:4000/bookings', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(object),
+    });
+    console.log(object);
+  },
+);
+
+export const deleteReservations = createAsyncThunk(
+  'bookings/deleteReservations',
+  async (id) => {
+    await fetch(`http://127.0.0.1:4000/bookings/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      },
+    });
+    console.log('deleted', id);
   },
 );
 

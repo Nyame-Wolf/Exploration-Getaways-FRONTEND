@@ -1,10 +1,9 @@
 /* eslint-disable linebreak-style */
 import React from 'react';
+import SignUp from '../components/SignUp/SignUp';
 
 const SignUpPage = () => (
-  <div>
-    component goes here
-  </div>
+  <SignUp />
 );
 
 export default SignUpPage;

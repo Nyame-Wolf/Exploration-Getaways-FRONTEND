@@ -9,7 +9,7 @@ function Package() {
   console.log(singlePackage);
 
   return (
-    <>
+    <div className="details-container">
       <div className="package">
         <div className="package-image-div">
           <img src={singlePackage.photo} className="package-image" alt="package-view" />
@@ -70,13 +70,15 @@ function Package() {
           </div>
         </div>
       </div>
+
       <Link to="/">
         Go Back
       </Link>
-      <Link to="/booking">
+
+      <Link state={singlePackage} to="/booking">
         Book this package
       </Link>
-    </>
+    </div>
   );
 }
 

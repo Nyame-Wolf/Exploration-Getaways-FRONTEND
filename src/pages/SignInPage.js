@@ -1,9 +1,10 @@
 /* eslint-disable linebreak-style */
 import React from 'react';
+import SignIn from '../components/signin/SignIn';
 
 const SignInPage = () => (
   <div>
-    component goes here
+    <SignIn />
   </div>
 );
 
