@@ -9,6 +9,7 @@ export const getReservations = createAsyncThunk(
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('token'),
       },
     });
     if (response.ok) {
