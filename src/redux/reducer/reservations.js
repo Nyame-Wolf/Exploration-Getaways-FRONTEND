@@ -33,6 +33,20 @@ export const postReservations = createAsyncThunk(
   },
 );
 
+export const deleteReservations = createAsyncThunk(
+  'bookings/deleteReservations',
+  async (id) => {
+    await fetch(`http://127.0.0.1:4000/bookings/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      },
+    });
+    console.log('deleted', id);
+  },
+);
+
 export const reservationSlice = createSlice({
   name: 'reservations',
   initialState,
