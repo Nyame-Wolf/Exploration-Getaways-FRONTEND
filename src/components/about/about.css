@@ -1,0 +1,134 @@
+.about-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 100px;
+  gap: 100px;
+  height: 100vh;
+}
+
+.card {
+  position: relative;
+  width: 350px;
+  height: 190px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow-1);
+  transition: 0.5s;
+}
+
+.card:hover {
+  height: 375px;
+}
+
+.image {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  left: 50%;
+  top: -50px;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  box-shadow: var(--box-shadow-1);
+  transition: 0.5s;
+}
+
+.card:hover .image {
+  width: 200px;
+  height: 200px;
+}
+
+.about-container .card:nth-child(1) .image {
+  background-image: url(../../assets/images/user1.jpg);
+  background-size: cover;
+}
+
+.about-container .card:nth-child(2) .image {
+  background-image: url(../../assets/images/user2.jpg);
+  background-size: cover;
+}
+
+.card .content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.card .content .details {
+  padding: 40px;
+  text-align: center;
+  width: 100%;
+  transition: 0.5s;
+  transform: translateY(150px);
+}
+
+.card:hover .content .details {
+  transform: translateY(0);
+}
+
+.card .content .details h2 {
+  font-size: 1.25em;
+  font-weight: 600;
+  color: #555;
+  line-height: 1.2em;
+}
+
+.card .content .details span {
+  font-size: 0.75em;
+  font-weight: 500;
+  opacity: 0.5;
+}
+
+.card .content .details .data {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.card .content .details .data h3 {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.2em;
+  font-weight: 600;
+}
+
+.card .content .details .data span {
+  font-size: 0.85em;
+  font-weight: 400;
+  opacity: 0.5;
+}
+
+.card .content .details .actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card .content .details .actions button {
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  font-weight: 500;
+  background: darkslategray;
+  color: white;
+  cursor: pointer;
+}
+
+.card .content .details .actions button:nth-child(2) {
+  border: 1px solid #999;
+  color: #999;
+  background-color: white;
+}
+
+@media (min-width: 768px) {
+  .about-container {
+    overflow-y: scroll;
+  }
+}

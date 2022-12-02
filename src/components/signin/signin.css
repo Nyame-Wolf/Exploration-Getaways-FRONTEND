@@ -1,0 +1,19 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 40px);
+  width: 100%;
+  padding: 5%;
+}
+
+.login {
+  background-color: white;
+  box-shadow: var(--box-shadow-1);
+  height: 100%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-radius: 5px;
+}
