@@ -1,7 +1,7 @@
 .bookings-container {
   background-image: url(../../assets/images/background3.png);
   background-size: cover;
-  background-color: rgb(147, 208, 40);
+  background-color: rgba(255, 68, 0, 0.4);
   background-blend-mode: luminosity;
   width: 100%;
   height: calc(100vh - 40px);
@@ -13,6 +13,7 @@
   color: white;
   gap: 15px;
   position: relative;
+  border: 5px solid white;
 }
 
 .start-div .rmdp-input {
@@ -54,7 +55,7 @@
 }
 
 .rmdp-input::placeholder {
-  color: rgb(147, 208, 40);
+  color: orangered;
 }
 
 .bookings-form {
@@ -64,10 +65,13 @@
 }
 
 .bookings-form select {
-  border: 3px solid white;
+  border-left: 3px solid white;
+  border-top: 3px solid white;
+  border-right: 3px solid rgb(200, 200, 200);
+  border-bottom: 3px solid rgb(200, 200, 200);
   color: white;
   font-weight: 900;
-  background-color: rgb(147, 208, 40);
+  background-color: rgba(255, 68, 0, 0.7);
   padding: 15px;
   border-radius: 50px;
   box-shadow: var(--box-shadow-1);
@@ -75,6 +79,12 @@
   text-align: center;
   transition: 0.5s;
   cursor: pointer;
+}
+
+.booking-buttons-div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .bookings-form select:hover {
@@ -98,15 +108,18 @@
 }
 
 .form-button {
-  color: rgb(147, 208, 40);
+  color: orangered;
   background-color: white;
   padding: 15px;
   border-radius: 50px;
   font-weight: 900;
-  border: 3px solid white;
   box-shadow: var(--box-shadow-1);
   cursor: pointer;
   transition: 0.5s;
+  border-left: 3px solid rgb(225, 225, 225);
+  border-top: 3px solid rgb(225, 225, 225);
+  border-right: 3px solid rgb(200, 200, 200);
+  border-bottom: 3px solid rgb(200, 200, 200);
 }
 
 .form-button:hover {
@@ -127,7 +140,7 @@ select > option {
   font-weight: 900;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
-  color: rgb(147, 208, 40);
+  color: orangered;
   background-color: white;
   box-shadow: var(--box-shadow-1);
   transition: 0.5s;
@@ -158,5 +171,42 @@ select > option {
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (min-width: 768px) {
+  .bookings-container {
+    height: 100vh;
+  }
+
+  .booking-buttons-div {
+    flex-direction: row;
+  }
+
+  .booking-buttons-div > * {
+    width: fit-content;
+  }
+
+  .start-div .rmdp-input {
+    position: static;
+    border-radius: 15px;
+  }
+
+  .end-div .rmdp-input {
+    position: static;
+    border-radius: 15px;
+  }
+
+  .start-div .rmdp-input:hover,
+  .end-div .rmdp-input:hover {
+    padding: 15px 20px;
+  }
+
+  .form-title-1 {
+    font-size: 3.5em;
+  }
+
+  .form-title-2 {
+    font-size: 3.5em;
   }
 }

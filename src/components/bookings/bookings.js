@@ -87,15 +87,16 @@ function Bookings() {
 
           <br />
 
-          <select value={selectedPackage} onChange={handleSelectChange}>
-            {packages.map((item) => (
-              <option key={item.id} value={item.id}>
-                {item.title}
-              </option>
-            ))}
-          </select>
-
-          <input className="form-button" type="submit" value="Submit" />
+          <div className="booking-buttons-div">
+            <select value={selectedPackage} onChange={handleSelectChange}>
+              {packages.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.title}
+                </option>
+              ))}
+            </select>
+            <input className="form-button" type="submit" value="Submit" />
+          </div>
         </form>
       ) : <img className="loading-gif" src={loadingGif} alt="loading" /> }
 

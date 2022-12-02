@@ -1,16 +1,22 @@
 .home-container {
-  padding: 15px;
+  padding: 35px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 15px;
+  width: 100%;
+  align-items: center;
 }
 
 .package {
   background-color: white;
   border-radius: 5px;
   overflow: hidden;
-  border-bottom: 3px double chartreuse;
+  border-bottom: 3px double orangered;
   box-shadow: var(--box-shadow-1);
+  width: 300px;
+  height: 100%;
 }
 
 .package-image-div {
@@ -56,15 +62,21 @@
 .package-information {
   padding: 15px;
   display: flex;
+  height: 140px;
 }
 
-.package:hover .package-information {
+.package:hover {
   background-color: rgb(241, 242, 248);
 }
 
 .information-texts {
   flex: 1.25;
   color: rgb(29, 47, 47);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
 }
 
 .title {
@@ -72,8 +84,10 @@
   font-size: 1.1em;
 }
 
-.description {
-  font-weight: 600;
+.included-div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .included {
@@ -92,7 +106,7 @@
 
 .price {
   color: darkorange;
-  font-size: 2.5em;
+  font-size: 2.2em;
   font-weight: 700;
   transition-duration: 0.1s;
 }
@@ -113,5 +127,35 @@
 
   100% {
     transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (min-width: 768px) {
+  .home-container {
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
+  .package {
+    width: 250px;
+    height: 100%;
+  }
+
+  .package-image-div {
+    height: 150px;
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 1em;
+  }
+
+  .package-information {
+    height: 130px;
+  }
+
+  .price {
+    font-size: 2em;
+    font-weight: 800;
   }
 }

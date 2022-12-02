@@ -37,20 +37,21 @@ function Packages() {
             <div className="package-information">
               <div className="information-texts">
                 <p className="title">{item.title}</p>
-                <p className="description">click to read more</p>
-                <div className="included">
-                  <FaGlobeAmericas />
-                  <span>
-                    {' '}
-                    {item.destination}
-                  </span>
-                </div>
-                <div className="included">
-                  <FaRegCalendarAlt />
-                  <span>
-                    {' '}
-                    {item.hotel}
-                  </span>
+                <div className="included-div">
+                  <div className="included">
+                    <FaGlobeAmericas />
+                    <span>
+                      {' '}
+                      {item.destination}
+                    </span>
+                  </div>
+                  <div className="included">
+                    <FaRegCalendarAlt />
+                    <span>
+                      {' '}
+                      {item.hotel}
+                    </span>
+                  </div>
                 </div>
               </div>
               <div className="information-price">

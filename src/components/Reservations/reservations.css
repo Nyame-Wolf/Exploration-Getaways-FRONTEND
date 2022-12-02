@@ -4,18 +4,25 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  align-items: center;
 }
 
 .reservation {
   background-color: white;
   border-radius: 5px;
   overflow: hidden;
-  border-bottom: 3px double chartreuse;
+  border-bottom: 3px double orangered;
   box-shadow: var(--box-shadow-1);
   padding: 15px;
 }
 
 .back-button-color {
   color: white;
-  background-color: chartreuse;
+  background-color: orangered;
+}
+
+@media (min-width: 768px) {
+  .reservations-container {
+    height: 100vh;
+  }
 }

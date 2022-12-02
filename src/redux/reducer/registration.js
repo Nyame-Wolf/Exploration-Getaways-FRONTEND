@@ -41,7 +41,9 @@ export const postSignIn = createAsyncThunk(
       }
       return res.text().then((text) => Promise.reject(text));
     })
-      .then((json) => console.dir(json))
+      .then((json) => {
+        console.dir(json);
+      })
       .catch((err) => console.error(err));
   },
 );

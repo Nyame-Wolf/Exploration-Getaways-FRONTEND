@@ -27,6 +27,7 @@ export const postReservations = createAsyncThunk(
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify(object),
     });
@@ -42,6 +43,7 @@ export const deleteReservations = createAsyncThunk(
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('token'),
       },
     });
     console.log('deleted', id);
