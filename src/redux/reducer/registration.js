@@ -35,7 +35,7 @@ export const postSignIn = createAsyncThunk(
       body: JSON.stringify({ user }),
     }).then((res) => {
       if (res.ok) {
-        console.log(res.headers.get('Authorization'));
+        // console.log(res.headers.get('Authorization'));
         localStorage.setItem('token', res.headers.get('Authorization'));
         return res.json();
       }

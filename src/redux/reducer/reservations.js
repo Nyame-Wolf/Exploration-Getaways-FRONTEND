@@ -1,7 +1,11 @@
 /* eslint-disable camelcase */
+/* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const initialState = [];
+const initialState = {
+  data: [],
+  status: 'idle',
+};
 
 export const getReservations = createAsyncThunk(
   'bookings/getReservation',
@@ -31,7 +35,6 @@ export const postReservations = createAsyncThunk(
       },
       body: JSON.stringify(object),
     });
-    console.log(object);
   },
 );
 
@@ -46,7 +49,6 @@ export const deleteReservations = createAsyncThunk(
         Authorization: localStorage.getItem('token'),
       },
     });
-    console.log('deleted', id);
   },
 );
 
@@ -55,10 +57,14 @@ export const reservationSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(
-      getReservations.fulfilled,
-      (state, action) => action.payload,
-    );
+    builder
+      .addCase(getReservations.fulfilled, (state, action) => {
+        state.data = action.payload;
+        state.status = 'succeeded';
+      })
+      .addCase(getReservations.pending, (state) => {
+        state.status = 'loading';
+      });
   },
 });
 

@@ -1,38 +1,28 @@
 /* eslint-disable max-len */
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { deleteReservations, getReservations } from '../../redux/reducer/reservations';
 import './reservations.css';
 
 const Reservations = () => {
-  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const currentUser = useSelector((state) => state.user.data);
-  const reservations = useSelector((state) => state.reservations);
+  const reservations = useSelector((state) => state.reservations.data);
+  const status = useSelector((state) => state.reservations.status);
   const packages = useSelector((state) => state.agency.data.reduce((acc, next) => {
     acc[next.id] = next;
     return acc;
   }, {}));
 
   useEffect(() => {
-    currentUser.name ? '' : navigate('/sign-in');
-
-    if (loading) { return; }
-    setLoading(true);
-    dispatch(getReservations()).then(() => {
-      setLoading(false);
-    }).catch(() => {
-      setLoading(false);
-    });
+    dispatch(getReservations());
   }, []);
 
   return (
     <>
       <div className="reservations-container">
-        {reservations.length ? (
+        {status === 'succeeded' ? (
           reservations.map((reservation) => (
             <li className="reservation" key={reservation.id}>
               {packages[reservation.package_id]

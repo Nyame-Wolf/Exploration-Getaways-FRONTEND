@@ -16,8 +16,8 @@ import loadingGif from '../../assets/images/loading.gif';
 function Bookings() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const packages = useSelector((state) => state.agencyReducer.data);
-  const status = useSelector((state) => state.agencyReducer.status);
+  const packages = useSelector((state) => state.agency.data);
+  const status = useSelector((state) => state.agency.status);
   const location = useLocation();
   const detailsPackage = location.state;
   let initialSelection;
