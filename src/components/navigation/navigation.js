@@ -5,7 +5,7 @@ import './navigation.css';
 import {
   FaHome, FaShoppingCart, FaShoppingBag, FaInfo, FaSignOutAlt, FaExclamationCircle,
 } from 'react-icons/fa';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteSession } from '../../redux/reducer/registration';
 import worldGif from '../../assets/images/world.gif';
 import mobilePhone from '../../assets/images/mobile1.png';
@@ -17,6 +17,7 @@ const Navigation = () => {
   const [isHamburgerActive, setActive] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const currentUser = useSelector((state) => state.user.data);
   const toggleClass = () => {
     setActive(!isHamburgerActive);
   };
@@ -73,15 +74,26 @@ const Navigation = () => {
             <span>About</span>
           </NavLink>
         </li>
-        <li>
-          <form onSubmit={handleLogout}>
-            <button className="logout" type="submit">
-              <FaSignOutAlt />
-              {' '}
-              Logout
-            </button>
-          </form>
-        </li>
+        {currentUser.name
+          ? (
+            <li>
+              <form onSubmit={handleLogout}>
+                <button className="logout" type="submit">
+                  <FaSignOutAlt />
+                  {' '}
+                  Logout
+                </button>
+              </form>
+            </li>
+          )
+          : (
+            <li>
+              <NavLink className={({ isActive }) => (isActive ? 'active-link' : 'none')} to="/sign-in" onClick={toggleClass}>
+                <FaSignOutAlt />
+                <span>Sign-in</span>
+              </NavLink>
+            </li>
+          )}
       </ul>
 
       <div className="buy-now">
