@@ -1,13 +1,16 @@
 /* eslint-disable max-len */
+/* eslint-disable no-unused-expressions */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { deleteReservations, getReservations } from '../../redux/reducer/reservations';
 import './reservations.css';
 
 const Reservations = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const currentUser = useSelector((state) => state.user.data);
   const reservations = useSelector((state) => state.reservations.data);
   const status = useSelector((state) => state.reservations.status);
   const packages = useSelector((state) => state.agency.data.reduce((acc, next) => {
@@ -17,6 +20,7 @@ const Reservations = () => {
 
   useEffect(() => {
     dispatch(getReservations());
+    currentUser.name ? null : navigate('/sign-in');
   }, []);
 
   return (

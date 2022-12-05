@@ -2,7 +2,7 @@
 /* eslint-disable no-lone-blocks */
 /* eslint-disable no-unused-expressions */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import DatePicker from 'react-multi-date-picker';
@@ -16,6 +16,7 @@ import loadingGif from '../../assets/images/loading.gif';
 function Bookings() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const currentUser = useSelector((state) => state.user.data);
   const packages = useSelector((state) => state.agency.data);
   const status = useSelector((state) => state.agency.status);
   const location = useLocation();
@@ -44,6 +45,10 @@ function Bookings() {
     dispatch(postReservations(postObject));
     navigate('/reservations');
   };
+
+  useEffect(() => {
+    currentUser.name ? '' : navigate('/sign-in');
+  }, []);
 
   return (
     <div className="bookings-container">

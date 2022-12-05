@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { postSignIn } from '../../redux/reducer/registration';
 import { getUser } from '../../redux/reducer/user';
+import logoGif from '../../assets/images/ExplorationGetaways.gif';
 import './signin.css';
 
 function SignIn() {
@@ -37,12 +38,13 @@ function SignIn() {
       <div className="login-container">
         <div className="login">
           <h1>Log In</h1>
-          <form onSubmit={handleSubmit}>
+          <form className="login-form" onSubmit={handleSubmit}>
             <input
               placeholder="Email"
               type="email"
               name="email"
               value={email}
+              className="input-box"
               onChange={(e) => { setEmail(e.target.value); }}
             />
             <input
@@ -50,14 +52,15 @@ function SignIn() {
               type="password"
               name="password"
               value={password}
+              className="input-box"
               onChange={(e) => { setPassword(e.target.value); }}
             />
-            <input type="submit" value="Sign In" />
+            <input className="submit-login" type="submit" value="Sign In" />
             <div>
-              or
               <Link to="/sign-up">sign up</Link>
             </div>
           </form>
+          <img className="logo-gif" src={logoGif} alt="logo-gif" />
         </div>
       </div>
     </>

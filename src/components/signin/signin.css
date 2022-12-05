@@ -14,6 +14,38 @@
   padding: 50px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   gap: 15px;
   border-radius: 5px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.input-box {
+  width: 100%;
+  padding: 5px;
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  box-shadow: var(--box-shadow-1);
+  text-align: center;
+}
+
+.submit-login {
+  width: 100%;
+  padding: 5px;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow-1);
+  background-color: orangered;
+  color: white;
+}
+
+.logo-gif {
+  width: 200px;
 }

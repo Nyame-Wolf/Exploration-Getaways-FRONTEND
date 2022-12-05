@@ -56,12 +56,16 @@ const Navigation = () => {
             <span>Booking</span>
           </NavLink>
         </li>
-        <li>
-          <NavLink className={({ isActive }) => (isActive ? 'active-link' : 'none')} to="/promotions" onClick={toggleClass}>
-            <FaExclamationCircle />
-            <span className="promotions">Promotions</span>
-          </NavLink>
-        </li>
+        {currentUser.name
+          ? (
+            <li>
+              <NavLink className={({ isActive }) => (isActive ? 'active-link' : 'none')} to="/promotions" onClick={toggleClass}>
+                <FaExclamationCircle />
+                <span className="promotions">Promotions</span>
+              </NavLink>
+            </li>
+          )
+          : null }
         <li>
           <NavLink className={({ isActive }) => (isActive ? 'active-link' : 'none')} to="/reservations" onClick={toggleClass}>
             <FaShoppingBag />
