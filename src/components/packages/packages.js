@@ -1,15 +1,20 @@
 /* eslint-disable linebreak-style */
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { FaPlaneDeparture, FaRegCalendarAlt, FaGlobeAmericas } from 'react-icons/fa';
 import './packages.css';
 import { Link } from 'react-router-dom';
 import loadingGif from '../../assets/images/loading.gif';
+import { getPackages } from '../../redux/reducer/reducer';
 
 function Packages() {
-  const packages = useSelector((state) => state.agencyReducer.data);
-  const status = useSelector((state) => state.agencyReducer.status);
-  console.log(status === 'succeeded' ? packages : '...');
+  const dispatch = useDispatch();
+  const packages = useSelector((state) => state.agency.data);
+  const status = useSelector((state) => state.agency.status);
+
+  useEffect(() => {
+    dispatch(getPackages());
+  }, []);
 
   return (
     <div className="home-container">
