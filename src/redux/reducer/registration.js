@@ -13,14 +13,11 @@ export const postSignUp = createAsyncThunk(
       body: JSON.stringify({ user }),
     }).then((res) => {
       if (res.ok) {
-        console.log(res.headers.get('Authorization'));
         localStorage.setItem('token', res.headers.get('Authorization'));
         return res.json();
       }
       throw new Error(res);
-    })
-      .then((json) => console.dir(json))
-      .catch((err) => console.error(err));
+    });
   },
 );
 
@@ -35,16 +32,11 @@ export const postSignIn = createAsyncThunk(
       body: JSON.stringify({ user }),
     }).then((res) => {
       if (res.ok) {
-        // console.log(res.headers.get('Authorization'));
         localStorage.setItem('token', res.headers.get('Authorization'));
         return res.json();
       }
       return res.text().then((text) => Promise.reject(text));
-    })
-      .then((json) => {
-        console.dir(json);
-      })
-      .catch((err) => console.error(err));
+    });
   },
 );
 
@@ -62,11 +54,7 @@ export const deleteSession = createAsyncThunk(
         return res.json();
       }
       return res.json().then((json) => Promise.reject(json));
-    })
-      .then((json) => {
-        console.dir(json);
-      })
-      .catch((err) => console.error(err));
+    });
   },
 );
 
