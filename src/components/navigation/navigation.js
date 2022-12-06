@@ -21,11 +21,13 @@ const Navigation = () => {
   const toggleClass = () => {
     setActive(!isHamburgerActive);
   };
+
   const handleLogout = (e) => {
     e.preventDefault;
     dispatch(deleteSession());
     navigate('/sign-in');
   };
+
   return (
     <nav className={isHamburgerActive ? 'navigation-container toggle-on' : 'navigation-container'}>
       <span className="navigation-logo">
@@ -92,7 +94,7 @@ const Navigation = () => {
           )
           : (
             <li>
-              <NavLink className={({ isActive }) => (isActive ? 'active-link' : 'none')} to="/sign-in" onClick={toggleClass}>
+              <NavLink className={({ isActive }) => (isActive ? 'active-link sign-in' : 'none sign-in')} to="/sign-in" onClick={toggleClass}>
                 <FaSignOutAlt />
                 <span>Sign-in</span>
               </NavLink>

@@ -37,7 +37,7 @@ function SignIn() {
       {currentUser.name ? navigate('/') : ''}
       <div className="login-container">
         <div className="login">
-          <h1>Log In</h1>
+          <h1 className="login-title">Log In</h1>
           <form className="login-form" onSubmit={handleSubmit}>
             <input
               placeholder="Email"
@@ -57,7 +57,9 @@ function SignIn() {
             />
             <input className="submit-login" type="submit" value="Sign In" />
             <div>
-              <Link to="/sign-up">sign up</Link>
+              Not a member?
+              {' '}
+              <Link to="/sign-up">Sign up</Link>
             </div>
           </form>
           <img className="logo-gif" src={logoGif} alt="logo-gif" />

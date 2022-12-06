@@ -18,6 +18,7 @@
   justify-content: space-between;
   gap: 15px;
   border-radius: 5px;
+  color: darkslategray;
 }
 
 .login-form {
@@ -28,8 +29,8 @@
 }
 
 .input-box {
-  width: 100%;
-  padding: 5px;
+  width: 300px;
+  padding: 10px;
   border-radius: 15px;
   outline: none;
   border: none;
@@ -39,11 +40,17 @@
 
 .submit-login {
   width: 100%;
-  padding: 5px;
+  padding: 10px;
   border-radius: 15px;
   box-shadow: var(--box-shadow-1);
-  background-color: orangered;
+  background-color: var(--color-1);
   color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.submit-login:hover {
+  background-color: var(--color-3);
 }
 
 .logo-gif {

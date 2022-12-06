@@ -31,16 +31,21 @@ const Reservations = () => {
             <li className="reservation" key={reservation.id}>
               {packages[reservation.package_id]
                 ? (
-                  <div>
-                    <p>{packages[reservation.package_id].title}</p>
-                    <p>{packages[reservation.package_id].destination}</p>
-                    <p>{packages[reservation.package_id].hotel}</p>
-                    <span>Refund(75%):</span>
-                    <span>{packages[reservation.package_id].price * (((100 - packages[reservation.package_id].promotion) / 100) * 0.75).toFixed(0)}</span>
+                  <>
+                    <div className="reservation-info">
+                      <img className="reservation-photo" src={packages[reservation.package_id].photo[0]} alt="reservation" />
+                      <div>
+                        <p>{packages[reservation.package_id].title}</p>
+                        <p>{packages[reservation.package_id].destination}</p>
+                        <p>{packages[reservation.package_id].hotel}</p>
+                        <span>Refund(75%):</span>
+                        <span>{packages[reservation.package_id].price * (((100 - packages[reservation.package_id].promotion) / 100) * 0.75).toFixed(0)}</span>
+                      </div>
+                    </div>
                     <form onSubmit={() => dispatch(deleteReservations(reservation.id))}>
-                      <button type="submit">Cancel reservation</button>
+                      <button className="cancel-reservation" type="submit">Cancel reservation</button>
                     </form>
-                  </div>
+                  </>
                 )
                 : null}
             </li>

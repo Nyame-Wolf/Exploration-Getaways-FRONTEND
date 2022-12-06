@@ -1,20 +1,14 @@
 /* eslint-disable linebreak-style */
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { FaPlaneDeparture, FaRegCalendarAlt, FaGlobeAmericas } from 'react-icons/fa';
-import './packages.css';
+import '../packages/packages.css';
 import { Link } from 'react-router-dom';
 import loadingGif from '../../assets/images/loading.gif';
-import { getPackages } from '../../redux/reducer/reducer';
 
-function Packages() {
-  const dispatch = useDispatch();
+function Promotions() {
   const packages = useSelector((state) => state.agency.data);
   const status = useSelector((state) => state.agency.status);
-
-  useEffect(() => {
-    dispatch(getPackages());
-  }, []);
 
   return (
     <div className="home-container">
@@ -22,7 +16,7 @@ function Packages() {
         <Link state={item} key={item.id} to="package/details">
           <div key={item.id} className="package">
             <div className="package-image-div">
-              <img src={item.photo[0]} className="package-image" alt="package-view" />
+              <img src={item.photo} className="package-image" alt="package-view" />
               <div className="promotion">
                 <span>
                   -
@@ -87,4 +81,4 @@ function Packages() {
   );
 }
 
-export default Packages;
+export default Promotions;

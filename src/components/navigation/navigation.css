@@ -13,7 +13,7 @@
 }
 
 .navigation-logo {
-  background-color: rgba(255, 68, 0, 0.7);
+  background-color: var(--color-2);
   padding: 3px 28px;
   border-radius: 50px;
 }
@@ -81,7 +81,7 @@
 
 .active-link {
   color: white;
-  background-color: orangered;
+  background-color: var(--color-1);
 }
 
 .none {
@@ -95,7 +95,7 @@
 .promotions::after {
   content: 'new!';
   position: absolute;
-  background-color: orangered;
+  background-color: var(--color-1);
   color: white;
   top: -10px;
   right: -25px;
@@ -139,6 +139,11 @@
   transition: all 0.5s;
 }
 
+.sign-in {
+  background-color: darkslategray;
+  color: white;
+}
+
 .logout {
   background-color: darkslategray;
   position: absolute;
@@ -161,7 +166,7 @@
 .none:hover,
 .active-link:hover,
 .logout:hover {
-  background-color: rgba(255, 68, 0, 0.7);
+  background-color: var(--color-2);
   color: white;
 }
 
@@ -274,9 +279,9 @@
     left: 80px;
     bottom: 20px;
     box-shadow:
-      0 0 5px orangered,
-      0 0 15px orangered,
-      0 0 5px orangered;
+      0 0 5px var(--color-1),
+      0 0 15px var(--color-1),
+      0 0 5px var(--color-1);
     border-radius: 50%;
   }
 
