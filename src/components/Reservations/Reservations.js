@@ -3,7 +3,9 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaArrowLeft } from 'react-icons/fa';
+import {
+  FaArrowLeft, FaPlaneDeparture, FaRegCalendarAlt, FaGlobeAmericas, FaPlaneArrival,
+} from 'react-icons/fa';
 import { deleteReservations, getReservations } from '../../redux/reducer/reservations';
 import './reservations.css';
 
@@ -35,11 +37,23 @@ const Reservations = () => {
                     <div className="reservation-info">
                       <img className="reservation-photo" src={packages[reservation.package_id].photo[0]} alt="reservation" />
                       <div>
-                        <p>{packages[reservation.package_id].title}</p>
-                        <p>{packages[reservation.package_id].destination}</p>
-                        <p>{packages[reservation.package_id].hotel}</p>
-                        <span>Refund(75%):</span>
-                        <span>{packages[reservation.package_id].price * (((100 - packages[reservation.package_id].promotion) / 100) * 0.75).toFixed(0)}</span>
+                        <p className="reservation-title">{packages[reservation.package_id].title}</p>
+                        <div className="reservation-included">
+                          <FaGlobeAmericas />
+                          <p>{packages[reservation.package_id].destination}</p>
+                        </div>
+                        <div className="reservation-included">
+                          <FaRegCalendarAlt />
+                          <p>{packages[reservation.package_id].hotel}</p>
+                        </div>
+                        <div className="reservation-included">
+                          <FaPlaneDeparture />
+                          <p>{reservation.start_date.substring(0, 10)}</p>
+                        </div>
+                        <div className="reservation-included">
+                          <FaPlaneArrival />
+                          <p>{reservation.end_date.substring(0, 10)}</p>
+                        </div>
                       </div>
                     </div>
                     <form onSubmit={() => dispatch(deleteReservations(reservation.id))}>

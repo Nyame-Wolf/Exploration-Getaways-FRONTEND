@@ -83,7 +83,6 @@
 .booking-buttons-div {
   display: flex;
   flex-direction: column;
-  gap: 15px;
 }
 
 .bookings-form select:hover {
@@ -189,6 +188,16 @@ select > option {
   .start-div .rmdp-input {
     position: static;
     border-radius: 15px;
+  }
+
+  .bookings-form select {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .form-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 
   .end-div .rmdp-input {

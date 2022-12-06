@@ -15,6 +15,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px;
+  background-color: white;
 }
 
 .reservation-photo {
@@ -27,6 +28,18 @@
   display: flex;
   gap: 15px;
   align-items: center;
+  color: darkslategray;
+}
+
+.reservation-title {
+  font-weight: 900;
+}
+
+.reservation-included {
+  display: flex;
+  gap: 10px;
+  margin-left: 15px;
+  font-size: 0.9em;
 }
 
 .back-button-color {

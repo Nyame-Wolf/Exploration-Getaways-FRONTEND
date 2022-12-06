@@ -2,10 +2,11 @@
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { postSignUp } from '../../redux/reducer/registration';
 
 function SignUp() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -22,6 +23,7 @@ function SignUp() {
     };
 
     dispatch(postSignUp(user));
+    navigate('/sign-in');
   };
   return (
     <div className="login-container">

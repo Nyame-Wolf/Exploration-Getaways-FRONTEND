@@ -32,7 +32,7 @@ function Package() {
         <div>
           <div>
             <p>{singlePackage.title}</p>
-            <p>click to read more</p>
+            <p>{singlePackage.description}</p>
             <div>
               <FaGlobeAmericas />
               <span>

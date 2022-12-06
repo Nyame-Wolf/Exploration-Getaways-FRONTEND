@@ -266,6 +266,8 @@
   .logout {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    font-size: 1em;
+    font-weight: 600;
   }
 
   .buy-now {
@@ -311,6 +313,7 @@
     left: 80px;
     bottom: 40px;
     animation: text1 7s infinite;
+    filter: hue-rotate(200deg);
   }
 
   .text2 {
@@ -320,6 +323,7 @@
     left: 80px;
     bottom: 40px;
     animation: text2 7s infinite;
+    filter: hue-rotate(200deg);
   }
 
   @keyframes airplane {
