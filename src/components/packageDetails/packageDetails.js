@@ -6,7 +6,6 @@ import './packageDetails.css';
 function Package() {
   const location = useLocation();
   const singlePackage = location.state;
-  console.log(singlePackage);
 
   return (
     <div className="details-container">
