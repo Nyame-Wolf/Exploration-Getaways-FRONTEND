@@ -6,14 +6,13 @@ import './packageDetails.css';
 function Package() {
   const location = useLocation();
   const singlePackage = location.state;
-  console.log(singlePackage);
 
   return (
     <div className="details-container">
-      <div className="package">
-        <div className="package-image-div">
-          <img src={singlePackage.photo} className="package-image" alt="package-view" />
-          <div className="promotion">
+      <div>
+        <div>
+          <img src={singlePackage.photo[0]} className="details-image" alt="package-view" />
+          <div>
             <span>
               -
               {singlePackage.promotion}
@@ -22,25 +21,25 @@ function Package() {
           </div>
           {singlePackage.flight
             ? (
-              <div className="flight-icon">
+              <div>
                 <span>Flight included</span>
                 <FaPlaneDeparture />
               </div>
             )
             : ''}
         </div>
-        <div className="package-information">
-          <div className="information-texts">
-            <p className="title">{singlePackage.title}</p>
-            <p className="description">click to read more</p>
-            <div className="included">
+        <div>
+          <div>
+            <p>{singlePackage.title}</p>
+            <p>{singlePackage.description}</p>
+            <div>
               <FaGlobeAmericas />
               <span>
                 {' '}
                 {singlePackage.destination}
               </span>
             </div>
-            <div className="included">
+            <div>
               <FaRegCalendarAlt />
               <span>
                 {' '}
@@ -48,12 +47,12 @@ function Package() {
               </span>
             </div>
           </div>
-          <div className="information-price">
+          <div>
             <span>
               from
               {' '}
             </span>
-            <span className="line-strike">
+            <span>
               $
               {(singlePackage.price)}
             </span>
@@ -62,7 +61,7 @@ function Package() {
               for
               {' '}
             </span>
-            <p className="price">
+            <p>
               $
               {singlePackage.price * ((100 - singlePackage.promotion) / 100)}
             </p>

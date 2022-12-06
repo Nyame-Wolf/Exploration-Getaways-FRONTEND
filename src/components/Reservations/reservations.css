@@ -4,21 +4,63 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  align-items: center;
+  overflow-y: auto;
 }
 
 .reservation {
-  background-color: white;
   border-radius: 5px;
-  overflow: hidden;
-  border-bottom: 3px double orangered;
   box-shadow: var(--box-shadow-1);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 15px;
+  background-color: white;
+}
+
+.reservation-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+.reservation-info {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  color: darkslategray;
+}
+
+.reservation-title {
+  font-weight: 900;
+}
+
+.reservation-included {
+  display: flex;
+  gap: 10px;
+  margin-left: 15px;
+  font-size: 0.9em;
 }
 
 .back-button-color {
   color: white;
-  background-color: orangered;
+  background-color: var(--color-1);
+}
+
+.cancel-reservation {
+  padding: 10px;
+  background-color: darkslategray;
+  color: white;
+  border-radius: 15px;
+  border: none;
+  box-shadow: var(--box-shadow-4);
+  cursor: pointer;
+  font-size: 0.6em;
+  font-weight: 700;
+}
+
+.cancel-reservation:hover {
+  background-color: var(--color-5);
 }
 
 @media (min-width: 768px) {

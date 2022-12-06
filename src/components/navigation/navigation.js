@@ -5,7 +5,7 @@ import './navigation.css';
 import {
   FaHome, FaShoppingCart, FaShoppingBag, FaInfo, FaSignOutAlt, FaExclamationCircle,
 } from 'react-icons/fa';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteSession } from '../../redux/reducer/registration';
 import worldGif from '../../assets/images/world.gif';
 import mobilePhone from '../../assets/images/mobile1.png';
@@ -17,14 +17,17 @@ const Navigation = () => {
   const [isHamburgerActive, setActive] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const currentUser = useSelector((state) => state.user.data);
   const toggleClass = () => {
     setActive(!isHamburgerActive);
   };
+
   const handleLogout = (e) => {
     e.preventDefault;
     dispatch(deleteSession());
     navigate('/sign-in');
   };
+
   return (
     <nav className={isHamburgerActive ? 'navigation-container toggle-on' : 'navigation-container'}>
       <span className="navigation-logo">
@@ -55,12 +58,16 @@ const Navigation = () => {
             <span>Booking</span>
           </NavLink>
         </li>
-        <li>
-          <NavLink className={({ isActive }) => (isActive ? 'active-link' : 'none')} to="/promotions" onClick={toggleClass}>
-            <FaExclamationCircle />
-            <span className="promotions">Promotions</span>
-          </NavLink>
-        </li>
+        {currentUser.name
+          ? (
+            <li>
+              <NavLink className={({ isActive }) => (isActive ? 'active-link' : 'none')} to="/promotions" onClick={toggleClass}>
+                <FaExclamationCircle />
+                <span className="promotions">Promotions</span>
+              </NavLink>
+            </li>
+          )
+          : null }
         <li>
           <NavLink className={({ isActive }) => (isActive ? 'active-link' : 'none')} to="/reservations" onClick={toggleClass}>
             <FaShoppingBag />
@@ -73,15 +80,26 @@ const Navigation = () => {
             <span>About</span>
           </NavLink>
         </li>
-        <li>
-          <form onSubmit={handleLogout}>
-            <button className="logout" type="submit">
-              <FaSignOutAlt />
-              {' '}
-              Logout
-            </button>
-          </form>
-        </li>
+        {currentUser.name
+          ? (
+            <li>
+              <form onSubmit={handleLogout}>
+                <button className="logout" type="submit">
+                  <FaSignOutAlt />
+                  {' '}
+                  Logout
+                </button>
+              </form>
+            </li>
+          )
+          : (
+            <li>
+              <NavLink className={({ isActive }) => (isActive ? 'active-link sign-in' : 'none sign-in')} to="/sign-in" onClick={toggleClass}>
+                <FaSignOutAlt />
+                <span>Sign-in</span>
+              </NavLink>
+            </li>
+          )}
       </ul>
 
       <div className="buy-now">

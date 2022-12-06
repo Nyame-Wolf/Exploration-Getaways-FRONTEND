@@ -1,5 +1,5 @@
 .home-container {
-  padding: 35px;
+  padding: 25px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -13,7 +13,7 @@
   background-color: white;
   border-radius: 5px;
   overflow: hidden;
-  border-bottom: 3px double orangered;
+  border-bottom: 3px double var(--color-1);
   box-shadow: var(--box-shadow-1);
   width: 300px;
   height: 100%;
@@ -105,7 +105,7 @@
 }
 
 .price {
-  color: darkorange;
+  color: var(--color-4);
   font-size: 2.2em;
   font-weight: 700;
   transition-duration: 0.1s;
@@ -122,7 +122,7 @@
 
   50% {
     transform: translate3d(-1px, 0, 0);
-    color: rgb(234, 157, 13);
+    color: rgb(39, 13, 234);
   }
 
   100% {

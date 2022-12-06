@@ -14,6 +14,46 @@
   padding: 50px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   gap: 15px;
-  border-radius: 5px;
+  border-radius: 15px;
+  color: darkslategray;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.input-box {
+  width: 300px;
+  padding: 10px;
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  box-shadow: var(--box-shadow-1);
+  text-align: center;
+}
+
+.submit-login {
+  width: 100%;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow-1);
+  background-color: var(--color-1);
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.submit-login:hover {
+  background-color: var(--color-3);
+}
+
+.logo-gif {
+  width: 200px;
+  filter: hue-rotate(200deg);
 }

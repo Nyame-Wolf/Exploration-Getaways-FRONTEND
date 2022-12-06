@@ -1,6 +1,11 @@
 .details-container {
-  padding: 15px;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.details-image {
+  width: 500px;
 }

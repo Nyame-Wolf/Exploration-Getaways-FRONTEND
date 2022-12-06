@@ -3,9 +3,6 @@ import React from 'react';
 import './about.css';
 
 function About() {
-  const something = 'test';
-  console.log(something);
-
   return (
     <div className="about-container">
       <div className="card">

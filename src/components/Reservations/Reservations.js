@@ -1,56 +1,75 @@
 /* eslint-disable max-len */
-import { useEffect, useState } from 'react';
+/* eslint-disable no-unused-expressions */
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { FaArrowLeft } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
+import {
+  FaArrowLeft, FaPlaneDeparture, FaRegCalendarAlt, FaGlobeAmericas, FaPlaneArrival,
+} from 'react-icons/fa';
 import { deleteReservations, getReservations } from '../../redux/reducer/reservations';
 import './reservations.css';
 
 const Reservations = () => {
-  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const reservations = useSelector((state) => state.reservations);
-  const packages = useSelector((state) => state.agencyReducer.data.reduce((acc, next) => {
+  const navigate = useNavigate();
+  const currentUser = useSelector((state) => state.user.data);
+  const reservations = useSelector((state) => state.reservations.data);
+  const status = useSelector((state) => state.reservations.status);
+  const packages = useSelector((state) => state.agency.data.reduce((acc, next) => {
     acc[next.id] = next;
     return acc;
   }, {}));
 
   useEffect(() => {
-    if (loading) { return; }
-    setLoading(true);
-    dispatch(getReservations()).then(() => {
-      setLoading(false);
-    }).catch(() => {
-      setLoading(false);
-    });
+    dispatch(getReservations());
+    currentUser.name ? null : navigate('/sign-in');
   }, []);
 
   return (
-    <div className="reservations-container">
-      {reservations.length ? (
-        reservations.map((reservation) => (
-          <li className="reservation" key={reservation.id}>
-            {packages[reservation.package_id]
-              ? (
-                <div>
-                  <p>{packages[reservation.package_id].title}</p>
-                  <p>{packages[reservation.package_id].destination}</p>
-                  <p>{packages[reservation.package_id].hotel}</p>
-                  <span>Refund(75%):</span>
-                  <span>{packages[reservation.package_id].price * (((100 - packages[reservation.package_id].promotion) / 100) * 0.75).toFixed(0)}</span>
-                  <form onSubmit={() => dispatch(deleteReservations(reservation.id))}>
-                    <button type="submit">Cancel reservation</button>
-                  </form>
-                </div>
-              )
-              : null}
-          </li>
-        ))) : 'You have no reservations yet!'}
+    <>
+      <div className="reservations-container">
+        {status === 'succeeded' ? (
+          reservations.map((reservation) => (
+            <li className="reservation" key={reservation.id}>
+              {packages[reservation.package_id]
+                ? (
+                  <>
+                    <div className="reservation-info">
+                      <img className="reservation-photo" src={packages[reservation.package_id].photo[0]} alt="reservation" />
+                      <div>
+                        <p className="reservation-title">{packages[reservation.package_id].title}</p>
+                        <div className="reservation-included">
+                          <FaGlobeAmericas />
+                          <p>{packages[reservation.package_id].destination}</p>
+                        </div>
+                        <div className="reservation-included">
+                          <FaRegCalendarAlt />
+                          <p>{packages[reservation.package_id].hotel}</p>
+                        </div>
+                        <div className="reservation-included">
+                          <FaPlaneDeparture />
+                          <p>{reservation.start_date.substring(0, 10)}</p>
+                        </div>
+                        <div className="reservation-included">
+                          <FaPlaneArrival />
+                          <p>{reservation.end_date.substring(0, 10)}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <form onSubmit={() => dispatch(deleteReservations(reservation.id))}>
+                      <button className="cancel-reservation" type="submit">Cancel reservation</button>
+                    </form>
+                  </>
+                )
+                : null}
+            </li>
+          ))) : 'You have no reservations yet!'}
 
-      <Link className="back-button back-button-color" to="/">
-        <FaArrowLeft />
-      </Link>
-    </div>
+        <Link className="back-button back-button-color" to="/">
+          <FaArrowLeft />
+        </Link>
+      </div>
+    </>
   );
 };
 

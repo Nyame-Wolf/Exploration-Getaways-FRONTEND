@@ -1,7 +1,7 @@
 .bookings-container {
   background-image: url(../../assets/images/background3.png);
   background-size: cover;
-  background-color: rgba(255, 68, 0, 0.4);
+  background-color: var(--color-1);
   background-blend-mode: luminosity;
   width: 100%;
   height: calc(100vh - 40px);
@@ -13,7 +13,6 @@
   color: white;
   gap: 15px;
   position: relative;
-  border: 5px solid white;
 }
 
 .start-div .rmdp-input {
@@ -55,7 +54,7 @@
 }
 
 .rmdp-input::placeholder {
-  color: orangered;
+  color: var(--color-1);
 }
 
 .bookings-form {
@@ -71,7 +70,7 @@
   border-bottom: 3px solid rgb(200, 200, 200);
   color: white;
   font-weight: 900;
-  background-color: rgba(255, 68, 0, 0.7);
+  background-color: var(--color-2);
   padding: 15px;
   border-radius: 50px;
   box-shadow: var(--box-shadow-1);
@@ -84,7 +83,6 @@
 .booking-buttons-div {
   display: flex;
   flex-direction: column;
-  gap: 15px;
 }
 
 .bookings-form select:hover {
@@ -108,7 +106,7 @@
 }
 
 .form-button {
-  color: orangered;
+  color: var(--color-1);
   background-color: white;
   padding: 15px;
   border-radius: 50px;
@@ -140,7 +138,7 @@ select > option {
   font-weight: 900;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
-  color: orangered;
+  color: var(--color-1);
   background-color: white;
   box-shadow: var(--box-shadow-1);
   transition: 0.5s;
@@ -190,6 +188,16 @@ select > option {
   .start-div .rmdp-input {
     position: static;
     border-radius: 15px;
+  }
+
+  .bookings-form select {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .form-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 
   .end-div .rmdp-input {
