@@ -32,7 +32,7 @@ function SignIn() {
     return <Navigate to="/" />;
   }
   return (
-    <>
+
       <div className="login-container">
         <div className="login">
           <h1 className="login-title">Log In</h1>
@@ -62,8 +62,9 @@ function SignIn() {
           </form>
           <img className="logo-gif" src={logoGif} alt="logo-gif" />
         </div>
+
       </div>
-    </>
+    </div>
   );
 }
 

@@ -7,6 +7,7 @@ import {
   FaArrowLeft, FaPlaneDeparture, FaRegCalendarAlt, FaGlobeAmericas, FaPlaneArrival,
 } from 'react-icons/fa';
 import { deleteReservations, getReservations } from '../../redux/reducer/reservations';
+import loadingGif from '../../assets/images/loading.gif';
 import './reservations.css';
 import { useIsAuthenticated } from '../../redux/hooks';
 import { getPackages } from '../../redux/reducer/reducer';
@@ -66,7 +67,7 @@ const ReservationsDetails = () => {
                 )
                 : null}
             </li>
-          ))) : 'You have no reservations yet!'}
+          ))) : <img className="loading-gif" src={loadingGif} alt="loading" />}
 
         <Link className="back-button back-button-color" to="/">
           <FaArrowLeft />
