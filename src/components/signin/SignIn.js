@@ -1,20 +1,18 @@
 /* eslint-disable linebreak-style */
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link, Navigate } from 'react-router-dom';
 import { postSignIn } from '../../redux/reducer/registration';
-import { getUser } from '../../redux/reducer/user';
 import logoGif from '../../assets/images/ExplorationGetaways.gif';
 import './signin.css';
+import { useIsAuthenticated } from '../../redux/hooks';
 
 function SignIn() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const currentUser = useSelector((state) => state.user.data);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-
+  const authenticated = useIsAuthenticated();
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = {
@@ -25,16 +23,17 @@ function SignIn() {
     if (loading) { return; }
     setLoading(true);
     dispatch(postSignIn(user)).then(() => {
-      dispatch(getUser());
       setLoading(false);
     }).catch(() => {
       setLoading(false);
     });
   };
-
+  if (authenticated) {
+    return <Navigate to="/" />;
+  }
   return (
+
     <div className="login-container">
-      {currentUser.name ? navigate('/') : ''}
       <div className="login">
         <h1 className="login-title">Log In</h1>
         <form className="login-form" onSubmit={handleSubmit}>
@@ -63,6 +62,7 @@ function SignIn() {
         </form>
         <img className="logo-gif" src={logoGif} alt="logo-gif" />
       </div>
+
     </div>
   );
 }

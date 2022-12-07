@@ -2,18 +2,18 @@
 /* eslint-disable no-unused-expressions */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import {
   FaArrowLeft, FaPlaneDeparture, FaRegCalendarAlt, FaGlobeAmericas, FaPlaneArrival,
 } from 'react-icons/fa';
 import { deleteReservations, getReservations } from '../../redux/reducer/reservations';
 import loadingGif from '../../assets/images/loading.gif';
 import './reservations.css';
+import { useIsAuthenticated } from '../../redux/hooks';
+import { getPackages } from '../../redux/reducer/reducer';
 
-const Reservations = () => {
+const ReservationsDetails = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const currentUser = useSelector((state) => state.user.data);
   const reservations = useSelector((state) => state.reservations.data);
   const status = useSelector((state) => state.reservations.status);
   const packages = useSelector((state) => state.agency.data.reduce((acc, next) => {
@@ -23,7 +23,10 @@ const Reservations = () => {
 
   useEffect(() => {
     dispatch(getReservations());
-    currentUser.name ? null : navigate('/sign-in');
+
+    if (!Object.values(packages).length) {
+      dispatch(getPackages());
+    }
   }, []);
 
   return (
@@ -74,4 +77,11 @@ const Reservations = () => {
   );
 };
 
-export default Reservations;
+export default function Reservations() {
+  const isAuthenticated = useIsAuthenticated();
+  if (!isAuthenticated) {
+    return <Navigate to="/sign-in" />;
+  }
+
+  return <ReservationsDetails />;
+}

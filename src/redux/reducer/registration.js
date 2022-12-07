@@ -43,11 +43,14 @@ export const postSignIn = createAsyncThunk(
 export const deleteSession = createAsyncThunk(
   'users/signout',
   async () => {
+    const token = localStorage.getItem('token');
+    localStorage.removeItem('token');
+
     await fetch('http://127.0.0.1:4000/logout', {
       method: 'delete',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: localStorage.getItem('token'),
+        Authorization: token,
       },
     }).then((res) => {
       if (res.ok) {

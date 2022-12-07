@@ -1,23 +1,23 @@
 /* eslint-disable no-unused-expressions */
 import React, { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './navigation.css';
 import {
   FaHome, FaShoppingCart, FaShoppingBag, FaInfo, FaSignOutAlt, FaExclamationCircle,
 } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { deleteSession } from '../../redux/reducer/registration';
 import worldGif from '../../assets/images/world.gif';
 import mobilePhone from '../../assets/images/mobile1.png';
 import airplane from '../../assets/images/airplane.png';
 import text1 from '../../assets/images/text1.png';
 import text2 from '../../assets/images/text2.png';
+import { useIsAuthenticated } from '../../redux/hooks';
 
 const Navigation = () => {
   const [isHamburgerActive, setActive] = useState(false);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const currentUser = useSelector((state) => state.user.data);
+  const isAuthenticated = useIsAuthenticated();
   const toggleClass = () => {
     setActive(!isHamburgerActive);
   };
@@ -25,7 +25,7 @@ const Navigation = () => {
   const handleLogout = (e) => {
     e.preventDefault;
     dispatch(deleteSession());
-    navigate('/sign-in');
+    window.location.href = '/sign-in';
   };
 
   return (
@@ -58,7 +58,7 @@ const Navigation = () => {
             <span>Booking</span>
           </NavLink>
         </li>
-        {currentUser.name
+        {isAuthenticated
           ? (
             <li>
               <NavLink className={({ isActive }) => (isActive ? 'active-link' : 'none')} to="/promotions" onClick={toggleClass}>
@@ -80,7 +80,7 @@ const Navigation = () => {
             <span>About</span>
           </NavLink>
         </li>
-        {currentUser.name
+        {isAuthenticated
           ? (
             <li>
               <form onSubmit={handleLogout}>

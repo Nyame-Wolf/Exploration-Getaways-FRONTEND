@@ -4,7 +4,9 @@
 
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import {
+  Link, Navigate, useLocation, useNavigate,
+} from 'react-router-dom';
 import DatePicker from 'react-multi-date-picker';
 import './bookings.css';
 import transition from 'react-element-popper/animations/transition';
@@ -12,11 +14,13 @@ import opacity from 'react-element-popper/animations/opacity';
 import { FaArrowLeft } from 'react-icons/fa';
 import { postReservations } from '../../redux/reducer/reservations';
 import loadingGif from '../../assets/images/loading.gif';
+import { useIsAuthenticated } from '../../redux/hooks';
+import { getPackages } from '../../redux/reducer/reducer';
 
-function Bookings() {
+function BookingDetails() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const currentUser = useSelector((state) => state.user.data);
+  // const currentUser = useSelector((state) => state.user.data);
   const packages = useSelector((state) => state.agency.data);
   const status = useSelector((state) => state.agency.status);
   const location = useLocation();
@@ -47,7 +51,9 @@ function Bookings() {
   };
 
   useEffect(() => {
-    currentUser.name ? '' : navigate('/sign-in');
+    if (!Object.values(packages).length) {
+      dispatch(getPackages());
+    }
   }, []);
 
   return (
@@ -112,4 +118,14 @@ function Bookings() {
   );
 }
 
-export default Bookings;
+// export default Bookings;
+
+export default function Bookings() {
+  const isAuthenticated = useIsAuthenticated();
+
+  if (!isAuthenticated) {
+    return <Navigate to="/sign-in" />;
+  }
+
+  return <BookingDetails />;
+}
