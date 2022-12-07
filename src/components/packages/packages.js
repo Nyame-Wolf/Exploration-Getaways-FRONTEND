@@ -23,13 +23,17 @@ function Packages() {
           <div key={item.id} className="package">
             <div className="package-image-div">
               <img src={item.photo[0]} className="package-image" alt="package-view" />
-              <div className="promotion">
-                <span>
-                  -
-                  {item.promotion}
-                  %
-                </span>
-              </div>
+              {item.promotion
+                ? (
+                  <div className="promotion">
+                    <span>
+                      -
+                      {item.promotion}
+                      %
+                    </span>
+                  </div>
+                )
+                : ''}
               {item.flight
                 ? (
                   <div className="flight-icon">
@@ -60,19 +64,25 @@ function Packages() {
                 </div>
               </div>
               <div className="information-price">
-                <span>
-                  from
-                  {' '}
-                </span>
-                <span className="line-strike">
-                  $
-                  {item.price}
-                </span>
-                <span>
-                  {' '}
-                  for
-                  {' '}
-                </span>
+                {item.promotion
+                  ? (
+                    <div>
+                      <span>
+                        from
+                        {' '}
+                      </span>
+                      <span className="line-strike">
+                        $
+                        {item.price}
+                      </span>
+                      <span>
+                        {' '}
+                        for
+                        {' '}
+                      </span>
+                    </div>
+                  )
+                  : ''}
                 <p className="price">
                   $
                   {(item.price * ((100 - item.promotion) / 100)).toFixed(0)}

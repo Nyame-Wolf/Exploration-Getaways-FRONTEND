@@ -12,10 +12,10 @@
 :root {
   /* colors */
 
-  --color-1: rgb(93, 93, 184);
-  --color-2: rgba(106, 120, 177, 0.7);
-  --color-3: rgba(51, 56, 132, 0.4);
-  --color-4: rgb(46, 37, 108);
+  --color-1: rgb(77, 77, 197);
+  --color-2: rgba(69, 94, 193, 0.7);
+  --color-3: rgba(64, 70, 159, 0.4);
+  --color-4: rgb(41, 34, 92);
   --color-5: #08041f;
 
   /* hover colors */

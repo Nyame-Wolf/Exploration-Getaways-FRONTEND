@@ -1,6 +1,7 @@
 .reservations-container {
   padding: 15px;
   width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -8,19 +9,21 @@
 }
 
 .reservation {
-  border-radius: 5px;
+  border-radius: 15px;
   box-shadow: var(--box-shadow-1);
   width: 100%;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   padding: 15px;
   background-color: white;
+  position: relative;
 }
 
 .reservation-photo {
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   border-radius: 50px;
 }
 
@@ -32,14 +35,14 @@
 }
 
 .reservation-title {
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .reservation-included {
   display: flex;
-  gap: 10px;
-  margin-left: 15px;
-  font-size: 0.9em;
+  gap: 5px;
+  font-size: 0.7em;
+  color: gray;
 }
 
 .back-button-color {
@@ -53,10 +56,13 @@
   color: white;
   border-radius: 15px;
   border: none;
-  box-shadow: var(--box-shadow-4);
+  box-shadow: var(--box-shadow-1);
   cursor: pointer;
-  font-size: 0.6em;
-  font-weight: 700;
+  font-size: 0.5em;
+  font-weight: 500;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
 }
 
 .cancel-reservation:hover {
