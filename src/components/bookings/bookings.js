@@ -2,9 +2,11 @@
 /* eslint-disable no-lone-blocks */
 /* eslint-disable no-unused-expressions */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import {
+  Link, Navigate, useLocation, useNavigate,
+} from 'react-router-dom';
 import DatePicker from 'react-multi-date-picker';
 import './bookings.css';
 import transition from 'react-element-popper/animations/transition';
@@ -13,6 +15,7 @@ import { FaArrowLeft } from 'react-icons/fa';
 import { postReservations } from '../../redux/reducer/reservations';
 import loadingGif from '../../assets/images/loading.gif';
 import { useIsAuthenticated } from '../../redux/hooks';
+import { getPackages } from '../../redux/reducer/reducer';
 
 function BookingDetails() {
   const dispatch = useDispatch();
@@ -47,9 +50,11 @@ function BookingDetails() {
     navigate('/reservations');
   };
 
-  // useEffect(() => {
-  //   currentUser.name ? '' : navigate('/sign-in');
-  // }, []);
+  useEffect(() => {
+    if (!Object.values(packages).length) {
+      dispatch(getPackages());
+    }
+  }, []);
 
   return (
     <div className="bookings-container">
@@ -117,12 +122,9 @@ function BookingDetails() {
 
 export default function Bookings() {
   const isAuthenticated = useIsAuthenticated();
-  const navigate = useNavigate();
 
   if (!isAuthenticated) {
-    navigate('/sign-in');
-
-    return null;
+    return <Navigate to="/sign-in" />;
   }
 
   return <BookingDetails />;

@@ -1,19 +1,18 @@
 /* eslint-disable linebreak-style */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { postSignIn } from '../../redux/reducer/registration';
 import logoGif from '../../assets/images/ExplorationGetaways.gif';
 import './signin.css';
 import { useIsAuthenticated } from '../../redux/hooks';
 
-
-function SignInDetails() {
+function SignIn() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-
+  const authenticated = useIsAuthenticated();
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = {
@@ -29,7 +28,9 @@ function SignInDetails() {
       setLoading(false);
     });
   };
-
+  if (authenticated) {
+    return <Navigate to="/" />;
+  }
   return (
     <>
       <div className="login-container">
@@ -66,15 +67,4 @@ function SignInDetails() {
   );
 }
 
-export default function SignIn(){
-  const isAuthenticated = useIsAuthenticated();
-
-  if (isAuthenticated) {
-  
-
-    return <Navigate to='/'/>;
-  }
-
-  return <SignInDetails />;
-};
-
+export default SignIn;

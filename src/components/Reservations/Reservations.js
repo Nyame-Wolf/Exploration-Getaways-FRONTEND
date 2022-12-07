@@ -2,13 +2,14 @@
 /* eslint-disable no-unused-expressions */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import {
   FaArrowLeft, FaPlaneDeparture, FaRegCalendarAlt, FaGlobeAmericas, FaPlaneArrival,
 } from 'react-icons/fa';
 import { deleteReservations, getReservations } from '../../redux/reducer/reservations';
 import './reservations.css';
 import { useIsAuthenticated } from '../../redux/hooks';
+import { getPackages } from '../../redux/reducer/reducer';
 
 const ReservationsDetails = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,10 @@ const ReservationsDetails = () => {
 
   useEffect(() => {
     dispatch(getReservations());
+
+    if (!Object.values(packages).length) {
+      dispatch(getPackages());
+    }
   }, []);
 
   return (
@@ -73,12 +78,8 @@ const ReservationsDetails = () => {
 
 export default function Reservations() {
   const isAuthenticated = useIsAuthenticated();
-  const navigate = useNavigate();
-
   if (!isAuthenticated) {
-    navigate('/sign-in');
-
-    return null;
+    return <Navigate to="/sign-in" />;
   }
 
   return <ReservationsDetails />;
