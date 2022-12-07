@@ -1,81 +1,99 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaPlaneDeparture, FaRegCalendarAlt, FaGlobeAmericas } from 'react-icons/fa';
+import {
+  FaArrowLeft, FaChevronRight, FaChevronLeft, FaGlobeAmericas, FaShoppingCart,
+} from 'react-icons/fa';
 import './packageDetails.css';
 
 function Package() {
+  const [isReadMore, setReadMore] = useState(false);
+  const [isModal, setModal] = useState(false);
   const location = useLocation();
   const singlePackage = location.state;
 
+  const toggleReadMore = () => {
+    setReadMore(!isReadMore);
+  };
+
+  const testThis = () => {
+    setModal(!isModal);
+  };
+
   return (
     <div className="details-container">
-      <div>
-        <div>
-          <img src={singlePackage.photo[0]} className="details-image" alt="package-view" />
-          <div>
-            <span>
-              -
-              {singlePackage.promotion}
-              %
-            </span>
-          </div>
-          {singlePackage.flight
-            ? (
-              <div>
-                <span>Flight included</span>
-                <FaPlaneDeparture />
-              </div>
-            )
-            : ''}
+      <div className="details-image-div">
+        <img src={singlePackage.photo[0]} className="details-image" alt="package-view" />
+        <img src={singlePackage.photo[1]} className="details-image" alt="package-view" />
+        <img src={singlePackage.photo[2]} className="details-image" alt="package-view" />
+        <img src={singlePackage.photo[3]} className="details-image" alt="package-view" />
+        <FaChevronLeft className="left-arrow" />
+        <FaChevronRight className="right-arrow" />
+      </div>
+
+      <div className="details-info">
+        <h2>{singlePackage.title}</h2>
+        <div className="details-destination-div">
+          <FaGlobeAmericas />
+          <span className="details-destination">{singlePackage.destination}</span>
         </div>
-        <div>
-          <div>
-            <p>{singlePackage.title}</p>
-            <p>{singlePackage.description}</p>
-            <div>
-              <FaGlobeAmericas />
-              <span>
-                {' '}
-                {singlePackage.destination}
-              </span>
-            </div>
-            <div>
-              <FaRegCalendarAlt />
-              <span>
-                {' '}
-                {singlePackage.hotel}
-              </span>
-            </div>
-          </div>
-          <div>
-            <span>
-              from
-              {' '}
-            </span>
-            <span>
-              $
-              {(singlePackage.price)}
-            </span>
-            <span>
-              {' '}
-              for
-              {' '}
-            </span>
-            <p>
-              $
-              {singlePackage.price * ((100 - singlePackage.promotion) / 100)}
-            </p>
-            <span>12x payment</span>
+
+        <Link className="book-button" state={singlePackage} to="/booking">
+          Book this package
+          <FaShoppingCart />
+        </Link>
+
+        <p className={isReadMore ? 'details-descriptioff' : 'details-description'}>{singlePackage.description}</p>
+
+        <button className="read-more" type="button" onClick={toggleReadMore}>Read more</button>
+
+        <div className={isModal ? 'toggleModal' : 'all-images-div'}>
+          <div className="modals-scroll">
+            <img
+              role="presentation"
+              onClick={testThis}
+              src={singlePackage.photo[0]}
+              className="details-small-image"
+              alt="package-view"
+              style={{
+                width: isModal ? '100%' : '',
+              }}
+            />
+            <img
+              role="presentation"
+              onClick={testThis}
+              src={singlePackage.photo[1]}
+              className="details-small-image"
+              alt="package-view"
+              style={{
+                width: isModal ? '100%' : '',
+              }}
+            />
+            <img
+              role="presentation"
+              onClick={testThis}
+              src={singlePackage.photo[2]}
+              className="details-small-image"
+              alt="package-view"
+              style={{
+                width: isModal ? '100%' : '',
+              }}
+            />
+            <img
+              role="presentation"
+              onClick={testThis}
+              src={singlePackage.photo[3]}
+              className="details-small-image"
+              alt="package-view"
+              style={{
+                width: isModal ? '100%' : '',
+              }}
+            />
           </div>
         </div>
       </div>
 
-      <Link to="/">
-        Go Back
-      </Link>
-
-      <Link state={singlePackage} to="/booking">
-        Book this package
+      <Link className="back-button back-button-color" to="/">
+        <FaArrowLeft />
       </Link>
     </div>
   );
