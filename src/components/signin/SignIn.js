@@ -33,37 +33,36 @@ function SignIn() {
   }
   return (
 
-      <div className="login-container">
-        <div className="login">
-          <h1 className="login-title">Log In</h1>
-          <form className="login-form" onSubmit={handleSubmit}>
-            <input
-              placeholder="Email"
-              type="email"
-              name="email"
-              value={email}
-              className="input-box"
-              onChange={(e) => { setEmail(e.target.value); }}
-            />
-            <input
-              placeholder="Password"
-              type="password"
-              name="password"
-              value={password}
-              className="input-box"
-              onChange={(e) => { setPassword(e.target.value); }}
-            />
-            <input className="submit-login" type="submit" value="Sign In" />
-            <div>
-              Not a member?
-              {' '}
-              <Link to="/sign-up">Sign up</Link>
-            </div>
-          </form>
-          <img className="logo-gif" src={logoGif} alt="logo-gif" />
-        </div>
-
+    <div className="login-container">
+      <div className="login">
+        <h1 className="login-title">Log In</h1>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <input
+            placeholder="Email"
+            type="email"
+            name="email"
+            value={email}
+            className="input-box"
+            onChange={(e) => { setEmail(e.target.value); }}
+          />
+          <input
+            placeholder="Password"
+            type="password"
+            name="password"
+            value={password}
+            className="input-box"
+            onChange={(e) => { setPassword(e.target.value); }}
+          />
+          <input className="submit-login" type="submit" value="Sign In" />
+          <div>
+            Not a member?
+            {' '}
+            <Link to="/sign-up">Sign up</Link>
+          </div>
+        </form>
+        <img className="logo-gif" src={logoGif} alt="logo-gif" />
       </div>
+
     </div>
   );
 }
