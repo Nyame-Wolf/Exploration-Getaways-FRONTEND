@@ -1,16 +1,15 @@
 /* eslint-disable linebreak-style */
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { postSignIn } from '../../redux/reducer/registration';
-import { getUser } from '../../redux/reducer/user';
 import logoGif from '../../assets/images/ExplorationGetaways.gif';
 import './signin.css';
+import { useIsAuthenticated } from '../../redux/hooks';
 
-function SignIn() {
+
+function SignInDetails() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const currentUser = useSelector((state) => state.user.data);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -25,7 +24,6 @@ function SignIn() {
     if (loading) { return; }
     setLoading(true);
     dispatch(postSignIn(user)).then(() => {
-      dispatch(getUser());
       setLoading(false);
     }).catch(() => {
       setLoading(false);
@@ -34,7 +32,6 @@ function SignIn() {
 
   return (
     <>
-      {currentUser.name ? navigate('/') : ''}
       <div className="login-container">
         <div className="login">
           <h1 className="login-title">Log In</h1>
@@ -69,4 +66,15 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default function SignIn(){
+  const isAuthenticated = useIsAuthenticated();
+
+  if (isAuthenticated) {
+  
+
+    return <Navigate to='/'/>;
+  }
+
+  return <SignInDetails />;
+};
+

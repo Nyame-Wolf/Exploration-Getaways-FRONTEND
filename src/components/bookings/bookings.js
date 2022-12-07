@@ -2,7 +2,7 @@
 /* eslint-disable no-lone-blocks */
 /* eslint-disable no-unused-expressions */
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import DatePicker from 'react-multi-date-picker';
@@ -12,11 +12,12 @@ import opacity from 'react-element-popper/animations/opacity';
 import { FaArrowLeft } from 'react-icons/fa';
 import { postReservations } from '../../redux/reducer/reservations';
 import loadingGif from '../../assets/images/loading.gif';
+import { useIsAuthenticated } from '../../redux/hooks';
 
-function Bookings() {
+function BookingDetails() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const currentUser = useSelector((state) => state.user.data);
+  // const currentUser = useSelector((state) => state.user.data);
   const packages = useSelector((state) => state.agency.data);
   const status = useSelector((state) => state.agency.status);
   const location = useLocation();
@@ -46,9 +47,9 @@ function Bookings() {
     navigate('/reservations');
   };
 
-  useEffect(() => {
-    currentUser.name ? '' : navigate('/sign-in');
-  }, []);
+  // useEffect(() => {
+  //   currentUser.name ? '' : navigate('/sign-in');
+  // }, []);
 
   return (
     <div className="bookings-container">
@@ -112,4 +113,17 @@ function Bookings() {
   );
 }
 
-export default Bookings;
+// export default Bookings;
+
+export default function Bookings() {
+  const isAuthenticated = useIsAuthenticated();
+  const navigate = useNavigate();
+
+  if (!isAuthenticated) {
+    navigate('/sign-in');
+
+    return null;
+  }
+
+  return <BookingDetails />;
+}

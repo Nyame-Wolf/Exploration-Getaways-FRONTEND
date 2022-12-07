@@ -8,11 +8,10 @@ import {
 } from 'react-icons/fa';
 import { deleteReservations, getReservations } from '../../redux/reducer/reservations';
 import './reservations.css';
+import { useIsAuthenticated } from '../../redux/hooks';
 
-const Reservations = () => {
+const ReservationsDetails = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const currentUser = useSelector((state) => state.user.data);
   const reservations = useSelector((state) => state.reservations.data);
   const status = useSelector((state) => state.reservations.status);
   const packages = useSelector((state) => state.agency.data.reduce((acc, next) => {
@@ -22,7 +21,6 @@ const Reservations = () => {
 
   useEffect(() => {
     dispatch(getReservations());
-    currentUser.name ? null : navigate('/sign-in');
   }, []);
 
   return (
@@ -73,4 +71,15 @@ const Reservations = () => {
   );
 };
 
-export default Reservations;
+export default function Reservations() {
+  const isAuthenticated = useIsAuthenticated();
+  const navigate = useNavigate();
+
+  if (!isAuthenticated) {
+    navigate('/sign-in');
+
+    return null;
+  }
+
+  return <ReservationsDetails />;
+}
