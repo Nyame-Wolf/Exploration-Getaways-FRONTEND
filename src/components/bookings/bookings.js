@@ -69,7 +69,7 @@ function BookingDetails() {
               value={startDate}
               onChange={setStartDate}
               format="DD/MM/YYYY"
-              placeholder="Choose Start Date"
+              placeholder="Start Date"
               animations={[
                 opacity(),
                 transition({
@@ -85,7 +85,7 @@ function BookingDetails() {
               value={endDate}
               onChange={setEndDate}
               format="DD/MM/YYYY"
-              placeholder="Choose End Date"
+              placeholder="End Date"
               animations={[
                 opacity(),
                 transition({

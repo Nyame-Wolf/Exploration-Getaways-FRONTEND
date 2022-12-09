@@ -42,53 +42,71 @@ function Package() {
           <FaShoppingCart />
         </Link>
 
-        <p className={isReadMore ? 'details-descriptioff' : 'details-description'}>{singlePackage.description}</p>
+        <div className={isReadMore ? 'details-descriptioff' : 'details-description'}>
+          <p>{singlePackage.description}</p>
+          <br />
+          <div className="flex">
+            <FaChevronRight />
+            <p>Price:</p>
+            <p>{singlePackage.price}</p>
+          </div>
+          <div className="flex">
+            <FaChevronRight />
+            <p>Hotel:</p>
+            <p>{singlePackage.hotel}</p>
+          </div>
+          <div className="flex">
+            <FaChevronRight />
+            <p>Flight:</p>
+            <p>{singlePackage.flight ? 'Included' : 'Not Included'}</p>
+          </div>
+        </div>
 
         <button className="read-more" type="button" onClick={toggleReadMore}>Read more</button>
+      </div>
 
-        <div className={isModal ? 'toggleModal' : 'all-images-div'}>
-          <div className="modals-scroll">
-            <img
-              role="presentation"
-              onClick={testThis}
-              src={singlePackage.photo[0]}
-              className="details-small-image"
-              alt="package-view"
-              style={{
-                width: isModal ? '100%' : '',
-              }}
-            />
-            <img
-              role="presentation"
-              onClick={testThis}
-              src={singlePackage.photo[1]}
-              className="details-small-image"
-              alt="package-view"
-              style={{
-                width: isModal ? '100%' : '',
-              }}
-            />
-            <img
-              role="presentation"
-              onClick={testThis}
-              src={singlePackage.photo[2]}
-              className="details-small-image"
-              alt="package-view"
-              style={{
-                width: isModal ? '100%' : '',
-              }}
-            />
-            <img
-              role="presentation"
-              onClick={testThis}
-              src={singlePackage.photo[3]}
-              className="details-small-image"
-              alt="package-view"
-              style={{
-                width: isModal ? '100%' : '',
-              }}
-            />
-          </div>
+      <div className={isModal ? 'toggleModal' : 'all-images-div'}>
+        <div className="modals-scroll">
+          <img
+            role="presentation"
+            onClick={testThis}
+            src={singlePackage.photo[0]}
+            className="details-small-image"
+            alt="package-view"
+            style={{
+              width: isModal ? '100%' : '',
+            }}
+          />
+          <img
+            role="presentation"
+            onClick={testThis}
+            src={singlePackage.photo[1]}
+            className="details-small-image"
+            alt="package-view"
+            style={{
+              width: isModal ? '100%' : '',
+            }}
+          />
+          <img
+            role="presentation"
+            onClick={testThis}
+            src={singlePackage.photo[2]}
+            className="details-small-image"
+            alt="package-view"
+            style={{
+              width: isModal ? '100%' : '',
+            }}
+          />
+          <img
+            role="presentation"
+            onClick={testThis}
+            src={singlePackage.photo[3]}
+            className="details-small-image"
+            alt="package-view"
+            style={{
+              width: isModal ? '100%' : '',
+            }}
+          />
         </div>
       </div>
 

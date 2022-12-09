@@ -11,10 +11,10 @@ Exploration Getaways is a travelling application where the user can register new
 
 # Quick view
 
-![](./assets/images/readme2.jpg)
-![](./assets/images/readme3.jpg)
-![](./assets/images/readme4.jpg)
-![](./assets/images/readme5.jpg)
+![](./src/assets/images/readme2.jpg)
+![](./src/assets/images/readme3.jpg)
+![](./src/assets/images/readme4.jpg)
+![](./src/assets/images/readme5.jpg)
 
 # Live Demo Version
 
@@ -35,9 +35,17 @@ Loading
 # API documentation
 
 [Documentation link](http://localhost:4000/api-docs/)
-![](./assets/images/readme1.png)
+![](./src/assets/images/readme1.jpg)
 
-## Authors
+# Kanban Board
+
+Click here to open the [Kanban Board](https://github.com/Nyame-Wolf/Exploration-Getaways-FRONTEND/projects/1)
+
+[Backend - initial state](https://user-images.githubusercontent.com/103270117/203678348-d2b7954f-e5a9-473d-a33c-22eeee83daf5.png)
+
+[Frontend - initial state](https://user-images.githubusercontent.com/103270117/203832807-99205b68-c036-4bed-8cc3-7482ee46b7db.png)
+
+## Authors (2)
 
 👤 **Vitor Guedes Madeira** 🧑🏻‍💻
 - GitHub: [@vitorguedesmadeira](https://github.com/VitorGuedesMadeira)

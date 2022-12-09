@@ -31,9 +31,10 @@ function SignIn() {
   if (authenticated) {
     return <Navigate to="/" />;
   }
-  return (
 
+  return (
     <div className="login-container">
+      <div className="login-image" />
       <div className="login">
         <h1 className="login-title">Log In</h1>
         <form className="login-form" onSubmit={handleSubmit}>
@@ -62,7 +63,6 @@ function SignIn() {
         </form>
         <img className="logo-gif" src={logoGif} alt="logo-gif" />
       </div>
-
     </div>
   );
 }
