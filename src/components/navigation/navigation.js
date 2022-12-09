@@ -12,6 +12,7 @@ import mobilePhone from '../../assets/images/mobile1.png';
 import airplane from '../../assets/images/airplane.png';
 import text1 from '../../assets/images/text1.png';
 import text2 from '../../assets/images/text2.png';
+import logo from '../../assets/images/EGLogo.png';
 import { useIsAuthenticated } from '../../redux/hooks';
 
 const Navigation = () => {
@@ -31,12 +32,7 @@ const Navigation = () => {
   return (
     <nav className={isHamburgerActive ? 'navigation-container toggle-on' : 'navigation-container'}>
       <span className="navigation-logo">
-        <span className="navigation-logo-1">
-          EXPLORATION
-        </span>
-        <span className="navigation-logo-2">
-          GETAWAYS
-        </span>
+        <img className="eg-logo" src={logo} alt="logo" />
       </span>
 
       <div className="hamburger-menu" onClick={toggleClass} onKeyDown={toggleClass} role="presentation">

@@ -75,11 +75,6 @@ function Packages() {
                         $
                         {item.price}
                       </span>
-                      <span>
-                        {' '}
-                        for
-                        {' '}
-                      </span>
                     </div>
                   )
                   : ''}

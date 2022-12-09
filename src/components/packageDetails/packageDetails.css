@@ -54,7 +54,7 @@
 
 .book-button {
   padding: 10px;
-  background-color: var(--color-4);
+  background-color: var(--color-1);
   color: white;
   width: fit-content;
   border-radius: 10px;
@@ -110,7 +110,21 @@
   cursor: pointer;
 }
 
+.flex {
+  display: flex;
+  gap: 5px;
+}
+
+.flex > * {
+  color: var(--color-4);
+  font-weight: 700;
+}
+
 @media (min-width: 768px) {
+  .details-container {
+    justify-content: space-between;
+  }
+
   .toggleModal .modals-scroll {
     display: flex;
     flex-direction: column;
@@ -118,7 +132,25 @@
     gap: 50px;
   }
 
+  .details-small-image {
+    width: calc((100%/4));
+    border-radius: 0;
+  }
+
   .toggleModal .details-small-image {
     max-width: 700px;
+  }
+
+  .toggleModal .modals-scroll .details-small-image {
+    border-radius: 15px;
+  }
+
+  .details-image-div {
+    display: none;
+  }
+
+  .details-descriptioff,
+  .details-description {
+    width: calc(100% / 2);
   }
 }

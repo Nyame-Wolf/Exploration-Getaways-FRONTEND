@@ -43,7 +43,7 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: mediumturquoise;
+  background-color: rgb(35, 123, 173);
   display: flex;
   gap: 10px;
   padding: 5px;
@@ -122,7 +122,7 @@
 
   50% {
     transform: translate3d(-1px, 0, 0);
-    color: orange;
+    color: rgb(255, 119, 0);
   }
 
   100% {

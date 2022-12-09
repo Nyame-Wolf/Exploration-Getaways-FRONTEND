@@ -2,6 +2,15 @@
   display: flex;
   width: 100%;
   padding: 15px;
+  background-image: url(../../assets/textures/texture1.png);
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.258);
+  background-blend-mode: soft-light;
+}
+
+.login-image {
+  display: none;
 }
 
 .login {
@@ -13,6 +22,7 @@
   color: darkslategray;
   text-align: center;
   padding: 50px;
+  max-width: 500px;
 }
 
 .login-title {
@@ -60,6 +70,27 @@
 @media (min-width: 768px) {
   .login-container {
     height: 100vh;
-    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .login-container {
+    padding: 35px;
+  }
+
+  .login {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .login-image {
+    display: flex;
+    height: 100%;
+    width: 500px;
+    background-image: url(../../assets/images/pexels-element-digital-1051077.jpg);
+    background-size: cover;
+    border-radius: 15px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
 }

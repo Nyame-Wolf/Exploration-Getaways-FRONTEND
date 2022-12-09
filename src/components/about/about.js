@@ -16,21 +16,21 @@ function About() {
             <span>Full-stack Developer</span>
             <div className="data">
               <div>
-                <h3>292</h3>
+                <h3>73</h3>
                 <span>Posts</span>
               </div>
               <div>
-                <h3>230k</h3>
+                <h3>40</h3>
                 <span>Followers</span>
               </div>
               <div>
-                <h3>325</h3>
+                <h3>60</h3>
                 <span>Following</span>
               </div>
             </div>
             <div className="actions">
-              <button type="button">GitHub</button>
-              <button type="button">Linkedin</button>
+              <a href="https://github.com/Nyame-Wolf" className="button">GitHub</a>
+              <a href="https://www.linkedin.com/in/mumenya-nyamu-software-engineer/" className="button">Linkedin</a>
             </div>
           </div>
         </div>
@@ -47,21 +47,21 @@ function About() {
             <span>Full-stack Developer</span>
             <div className="data">
               <div>
-                <h3>342</h3>
+                <h3>48</h3>
                 <span>Posts</span>
               </div>
               <div>
-                <h3>120k</h3>
+                <h3>50</h3>
                 <span>Followers</span>
               </div>
               <div>
-                <h3>285</h3>
+                <h3>73</h3>
                 <span>Following</span>
               </div>
             </div>
             <div className="actions">
-              <button type="button">GitHub</button>
-              <button type="button">Linkedin</button>
+              <a href="https://github.com/VitorGuedesMadeira" className="button">GitHub</a>
+              <a href="https://www.linkedin.com/in/vitor-guedes-madeira/" className="button">Linkedin</a>
             </div>
           </div>
         </div>

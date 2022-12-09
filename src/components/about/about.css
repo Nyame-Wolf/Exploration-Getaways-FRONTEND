@@ -109,7 +109,7 @@
   justify-content: space-between;
 }
 
-.card .content .details .actions button {
+.card .content .details .actions .button {
   padding: 10px 30px;
   border-radius: 5px;
   border: none;
@@ -121,7 +121,7 @@
   cursor: pointer;
 }
 
-.card .content .details .actions button:nth-child(2) {
+.card .content .details .actions .button:nth-child(2) {
   border: 1px solid #999;
   color: #999;
   background-color: white;
@@ -239,7 +239,7 @@
     justify-content: space-between;
   }
 
-  .card .content .details .actions button {
+  .card .content .details .actions .button {
     padding: 10px 30px;
     border-radius: 5px;
     border: none;
@@ -251,7 +251,7 @@
     cursor: pointer;
   }
 
-  .card .content .details .actions button:nth-child(2) {
+  .card .content .details .actions .button:nth-child(2) {
     border: 1px solid #999;
     color: #999;
     background-color: white;

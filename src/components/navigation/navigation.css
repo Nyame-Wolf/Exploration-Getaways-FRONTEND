@@ -13,21 +13,16 @@
 }
 
 .navigation-logo {
-  background-color: var(--color-2);
-  padding: 3px 28px;
+  background-color: white;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 50px;
+  cursor: pointer;
 }
 
-.navigation-logo-1 {
-  color: black;
-  font-weight: 900;
-  font-size: 0.7em;
-}
-
-.navigation-logo-2 {
-  color: white;
-  font-weight: 900;
-  font-size: 0.7em;
+.eg-logo {
+  height: 20px;
 }
 
 .navigation-ul {
@@ -233,7 +228,8 @@
     position: absolute;
     top: 50px;
     left: 0;
-    padding: 7px 60px;
+    padding: 7px 45px;
+    padding-top: 10px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     width: fit-content;
@@ -244,7 +240,8 @@
   }
 
   .navigation-logo:hover {
-    padding: 7px 80px;
+    padding: 7px 50px;
+    padding-top: 10px;
   }
 
   .hamburger-menu {
