@@ -1,0 +1,84 @@
+.reservations-container {
+  padding: 15px;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto;
+  justify-content: start;
+  align-items: center;
+}
+
+.reservation {
+  border-radius: 15px;
+  box-shadow: var(--box-shadow-1);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 15px;
+  background-color: white;
+  position: relative;
+}
+
+.reservation:hover {
+  background-color: rgb(241, 242, 248);
+}
+
+.reservation-photo {
+  width: 75px;
+  height: 75px;
+  border-radius: 50px;
+  box-shadow: var(--box-shadow-1);
+  border: 1px dashed white;
+}
+
+.reservation-info {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  color: darkslategray;
+}
+
+.reservation-title {
+  font-weight: 700;
+}
+
+.reservation-included {
+  display: flex;
+  gap: 5px;
+  font-size: 0.7em;
+  color: gray;
+}
+
+.back-button-color {
+  color: white;
+  background-color: var(--color-1);
+}
+
+.cancel-reservation {
+  padding: 10px;
+  background-color: darkslategray;
+  color: white;
+  border-radius: 15px;
+  border: none;
+  box-shadow: var(--box-shadow-1);
+  cursor: pointer;
+  font-size: 0.5em;
+  font-weight: 500;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+}
+
+.cancel-reservation:hover {
+  background-color: var(--color-5);
+}
+
+@media (min-width: 768px) {
+  .reservations-container {
+    height: 100vh;
+  }
+}

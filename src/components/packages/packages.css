@@ -1,0 +1,161 @@
+.home-container {
+  padding: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100%;
+  align-items: center;
+}
+
+.package {
+  background-color: white;
+  border-radius: 5px;
+  overflow: hidden;
+  border-bottom: 3px double var(--color-1);
+  box-shadow: var(--box-shadow-1);
+  width: 340px;
+  height: 100%;
+}
+
+.package-image-div {
+  background-color: lightgray;
+  width: 100%;
+  height: 200px;
+  position: relative;
+  color: white;
+  font-size: 0.8em;
+  overflow: hidden;
+}
+
+.package-image {
+  width: 100%;
+  height: 100%;
+  transition-duration: 1s;
+}
+
+.package:hover .package-image {
+  transform: scale(1.02);
+}
+
+.flight-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgb(35, 123, 173);
+  display: flex;
+  gap: 10px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.promotion {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: crimson;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.package-information {
+  padding: 15px;
+  display: flex;
+  height: 140px;
+}
+
+.package:hover {
+  background-color: rgb(241, 242, 248);
+}
+
+.information-texts {
+  flex: 1.25;
+  color: rgb(29, 47, 47);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+.title {
+  font-weight: 900;
+  font-size: 1.1em;
+}
+
+.included-div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.included {
+  font-size: 0.8em;
+}
+
+.information-price {
+  flex: 0.75;
+  text-align: right;
+  font-size: 0.7em;
+}
+
+.line-strike {
+  text-decoration: line-through;
+}
+
+.price {
+  color: orangered;
+  font-size: 2.2em;
+  font-weight: 700;
+  transition-duration: 0.1s;
+}
+
+.package:hover .price {
+  animation: rightLeft 0.5s infinite;
+}
+
+@keyframes rightLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(-1px, 0, 0);
+    color: rgb(255, 119, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (min-width: 768px) {
+  .home-container {
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
+  .package {
+    width: 250px;
+    height: 100%;
+  }
+
+  .package-image-div {
+    height: 150px;
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 1em;
+  }
+
+  .package-information {
+    height: 130px;
+  }
+
+  .price {
+    font-size: 2em;
+    font-weight: 800;
+  }
+}

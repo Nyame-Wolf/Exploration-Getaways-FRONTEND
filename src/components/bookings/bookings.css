@@ -1,0 +1,222 @@
+.bookings-container {
+  background-image: url(../../assets/images/background4.jpg);
+  background-size: cover;
+  background-color: var(--color-1);
+  background-blend-mode: luminosity;
+  width: 100%;
+  height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  gap: 15px;
+  position: relative;
+}
+
+.start-div .rmdp-input {
+  position: absolute;
+  left: 0;
+  font-weight: 900;
+  background-color: rgb(255, 255, 255);
+  padding: 15px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  box-shadow: var(--box-shadow-1);
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  transition: 0.5s;
+  color: darkslategray;
+}
+
+.end-div .rmdp-input {
+  position: absolute;
+  right: 0;
+  font-weight: 900;
+  background-color: rgb(255, 255, 255);
+  padding: 15px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  box-shadow: var(--box-shadow-1);
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  transition: 0.5s;
+  color: darkslategray;
+}
+
+.rmdp-input:hover {
+  padding: 15px 40px;
+}
+
+.rmdp-input::placeholder {
+  color: var(--color-1);
+}
+
+.bookings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bookings-form select {
+  border-left: 3px solid white;
+  border-top: 3px solid white;
+  border-right: 3px solid rgb(200, 200, 200);
+  border-bottom: 3px solid rgb(200, 200, 200);
+  color: white;
+  font-weight: 900;
+  background-color: var(--color-1);
+  padding: 15px;
+  border-radius: 50px;
+  box-shadow: var(--box-shadow-1);
+  outline: none;
+  text-align: center;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.booking-buttons-div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bookings-form select:hover {
+  background-color: var(--color-2);
+}
+
+.form-title-1 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-shadow: 0 0 5px black;
+  font-size: 2em;
+  font-weight: 900;
+  animation: right 1.5s ease-in;
+}
+
+.form-title-2 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-shadow: 0 0 5px black;
+  font-size: 2em;
+  font-weight: 900;
+  animation: left 1.5s ease-in;
+}
+
+.form-button {
+  color: var(--color-1);
+  background-color: white;
+  padding: 15px;
+  border-radius: 50px;
+  font-weight: 900;
+  box-shadow: var(--box-shadow-1);
+  cursor: pointer;
+  transition: 0.5s;
+  border-left: 3px solid rgb(225, 225, 225);
+  border-top: 3px solid rgb(225, 225, 225);
+  border-right: 3px solid rgb(200, 200, 200);
+  border-bottom: 3px solid rgb(200, 200, 200);
+}
+
+.form-button:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+select > option {
+  background-color: white;
+  color: darkslategrey;
+  padding: 15px;
+}
+
+.back-button {
+  position: fixed;
+  left: 0;
+  bottom: 50px;
+  padding: 15px;
+  font-weight: 900;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  color: var(--color-1);
+  background-color: white;
+  box-shadow: var(--box-shadow-1);
+  transition: 0.5s;
+}
+
+.back-button:hover {
+  padding: 15px 20px;
+}
+
+@keyframes left {
+  from {
+    opacity: 0;
+    transform: translate3d(-40px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes right {
+  from {
+    opacity: 0;
+    transform: translate3d(40px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (min-width: 768px) {
+  .bookings-container {
+    height: 100vh;
+  }
+
+  .booking-buttons-div {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .booking-buttons-div > * {
+    width: fit-content;
+  }
+
+  .start-div .rmdp-input {
+    position: static;
+    border-radius: 15px;
+  }
+
+  .bookings-form select {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .form-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .end-div .rmdp-input {
+    position: static;
+    border-radius: 15px;
+  }
+
+  .start-div .rmdp-input:hover,
+  .end-div .rmdp-input:hover {
+    padding: 15px 20px;
+  }
+
+  .form-title-1 {
+    font-size: 3.5em;
+  }
+
+  .form-title-2 {
+    font-size: 3.5em;
+  }
+}
