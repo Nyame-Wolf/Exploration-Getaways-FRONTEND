@@ -9,7 +9,7 @@ const initialState = {
 export const getPackages = createAsyncThunk(
   'packages/getpackages',
   async () => {
-    const response = await fetch('http://127.0.0.1:4000', {
+    const response = await fetch('https://explorationgetaways.onrender.com/', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

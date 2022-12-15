@@ -5,7 +5,7 @@ const initialState = [];
 export const postSignUp = createAsyncThunk(
   'users/signup',
   async (user) => {
-    await fetch('http://127.0.0.1:4000/signup', {
+    await fetch('https://explorationgetaways.onrender.com/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ export const postSignUp = createAsyncThunk(
 export const postSignIn = createAsyncThunk(
   'users/signin',
   async (user) => {
-    await fetch('http://127.0.0.1:4000/login', {
+    await fetch('https://explorationgetaways.onrender.com/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ export const deleteSession = createAsyncThunk(
     const token = localStorage.getItem('token');
     localStorage.removeItem('token');
 
-    await fetch('http://127.0.0.1:4000/logout', {
+    await fetch('https://explorationgetaways.onrender.com/logout', {
       method: 'delete',
       headers: {
         'Content-Type': 'application/json',

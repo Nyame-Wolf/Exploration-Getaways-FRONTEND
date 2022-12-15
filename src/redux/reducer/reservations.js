@@ -10,7 +10,7 @@ const initialState = {
 export const getReservations = createAsyncThunk(
   'bookings/getReservation',
   async () => {
-    const response = await fetch('http://127.0.0.1:4000/bookings', {
+    const response = await fetch('https://explorationgetaways.onrender.com/bookings', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ export const getReservations = createAsyncThunk(
 export const postReservations = createAsyncThunk(
   'bookings/postReservation',
   async (object) => {
-    await fetch('http://127.0.0.1:4000/bookings', {
+    await fetch('https://explorationgetaways.onrender.com/bookings', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ export const postReservations = createAsyncThunk(
 export const deleteReservations = createAsyncThunk(
   'bookings/deleteReservations',
   async (id) => {
-    await fetch(`http://127.0.0.1:4000/bookings/${id}`, {
+    await fetch(`https://explorationgetaways.onrender.com/bookings/${id}`, {
       method: 'DELETE',
       headers: {
         'Access-Control-Allow-Origin': '*',
