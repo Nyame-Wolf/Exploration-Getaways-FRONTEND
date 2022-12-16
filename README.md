@@ -17,8 +17,7 @@ Exploration Getaways is a travelling application where the user can register new
 ![](./src/assets/images/readme5.jpg)
 
 # Live Demo Version
-
-Loading
+[Exploration-Getaways](https://exploration-getaways.netlify.app/)
 
 ## Getting Started
 
